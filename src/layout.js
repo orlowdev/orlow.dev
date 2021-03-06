@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
 import { css, Global } from '@emotion/react'
 import { Header } from './components/header'
@@ -125,3 +126,7 @@ export const Layout = ({ children }) => (
 		<Footer />
 	</>
 )
+
+Layout.propTypes = {
+	children: PropTypes.object,
+}
