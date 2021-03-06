@@ -11,6 +11,14 @@ export const postPageFragment = graphql`
 			song
 			tags
 			description
+			imageAlt
+			image {
+				sharp: childImageSharp {
+					fluid(quality: 100) {
+						...GatsbyImageSharpFluid_withWebp
+					}
+				}
+			}
 		}
 	}
 `
@@ -23,6 +31,14 @@ export const postPreviewFragment = graphql`
 			description
 			tags
 			song
+			imageAlt
+			image {
+				sharp: childImageSharp {
+					fixed(quality: 90, width: 300, height: 300) {
+						...GatsbyImageSharpFixed_withWebp
+					}
+				}
+			}
 		}
 		fields {
 			slug

@@ -1,27 +1,43 @@
+import styled from '@emotion/styled'
+import { graphql, Link } from 'gatsby'
 import React from 'react'
-import { css, Global } from '@emotion/react'
+import { Centralise } from '../components/centralise'
+import { Layout } from '../layout'
+import { PostPreview } from '../components/post-preview'
 
-const Index = () => (
-	<main>
-		<Global
-			styles={css`
-				@font-face {
-					font-family: system;
-					font-style: normal;
-					font-weight: 300;
-					src: local('.SFNSText-Light'), local('.HelveticaNeueDeskInterface-Light'),
-						local('.LucidaGrandeUI'), local('Ubuntu Light'), local('Segoe UI Light'),
-						local('Roboto-Light'), local('DroidSans'), local('Tahoma');
-				}
+const List = styled.ul`
+	list-style: none;
+	margin: 0;
+`
 
-				body {
-					font-family: system;
-				}
-			`}
-		/>
-		<h1>Hi</h1>
-		<p>I'll add something here in a moment.</p>
-	</main>
+const Index = ({ data }) => (
+	<Layout>
+		<Centralise>
+			<h1>Recent Posts</h1>
+			<List>
+				{data.allMarkdownRemark.edges.map(({ node }) => (
+					<li key={node.fields.slug}>
+						<PostPreview post={node} />
+					</li>
+				))}
+			</List>
+		</Centralise>
+	</Layout>
 )
 
 export default Index
+
+export const query = graphql`
+	query IndexPage {
+		allMarkdownRemark(
+			filter: { fileAbsolutePath: { regex: "/content/" }, frontmatter: { published: { eq: true } } }
+			sort: { order: DESC, fields: frontmatter___date }
+		) {
+			edges {
+				node {
+					...PostPreview
+				}
+			}
+		}
+	}
+`
