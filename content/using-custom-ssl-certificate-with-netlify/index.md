@@ -12,6 +12,7 @@ image: './clouds-billy-huynh.jpg'
 imageAlt: 'Billy Huynh (Unsplash)'
 description: 'A short guide on how to use custom SSL certificates with Netlify to improve security of your users in the cloud.'
 published: true
+imageShare: './og-image.png'
 ---
 
 Wait a `secondWait` a secondWait a secondWait a secondWait a secondWait a secondWait a secondWait a secondWait a secondWait a secondWait a secondWait a secondWait a secondWait a secondWait a secondWait a secondWait a secondWait a secondWait a secondWait a secondWait a secondWait a secondWait a secondWait a secondWait a secondWait a secondWait a secondWait a secondWait a second [^1]

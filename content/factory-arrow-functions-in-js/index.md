@@ -10,6 +10,7 @@ image: ./hero.png
 imageAlt: Made by me with Procreate
 description: Use arrow functions for constructing objects in JavaScript. Part I.
 published: true
+imageShare: './og-image.png'
 ---
 
 This article describes an alternative approach to instantiating objects from a template in JavaScript. For better comprehension, it is sometimes compared with commonly used ES6 classes.
@@ -43,14 +44,14 @@ You've most probably seen classes in JavaScript as they have become a common par
 
 ```javascript
 class Rectangle {
-  constructor(length, width) {
-    this.length = length
-    this.width = width
-  }
+	constructor(length, width) {
+		this.length = length
+		this.width = width
+	}
 
-  getArea() {
-    return this.length * this.width
-  }
+	getArea() {
+		return this.length * this.width
+	}
 }
 
 const r = new Rectangle(10, 20)
@@ -65,9 +66,9 @@ Here is an example:
 
 ```javascript
 const rectangle = (length, width) => ({
-  length,
-  width,
-  getArea: () => length * width,
+	length,
+	width,
+	getArea: () => length * width,
 })
 
 const r = rectangle(10, 20)
@@ -78,11 +79,11 @@ This example uses a few shortcuts, so it's ok if it seems unfamiliar. Here is wh
 
 ```javascript
 const rectangle = (length, width) => {
-  return {
-    length,
-    width,
-    getArea: () => length * width,
-  }
+	return {
+		length,
+		width,
+		getArea: () => length * width,
+	}
 }
 ```
 
@@ -96,9 +97,9 @@ We also enable safe method extraction because of the closure.
 
 ```javascript
 const rectangle = (length, width) => ({
-  width,
-  length,
-  getArea: () => length * width,
+	width,
+	length,
+	getArea: () => length * width,
 })
 
 const theRectangle = rectangle(10, 20)
@@ -115,8 +116,8 @@ It is impossible to directly change the arguments passed to a function from the 
 
 ```javascript
 const rectangle = (length, width) => ({
-  length,
-  getArea: () => length * width,
+	length,
+	getArea: () => length * width,
 })
 
 const r = rectangle(10, 20)
@@ -129,9 +130,9 @@ r.getArea() // 200
 
 ```javascript
 const rectangle = (length, width) => ({
-  length,
-  width,
-  getTotalAreaWith: ({ length: oLength, width: oWidth }) => length * width + oLength * oWidth, // <- This is the cause
+	length,
+	width,
+	getTotalAreaWith: ({ length: oLength, width: oWidth }) => length * width + oLength * oWidth, // <- This is the cause
 })
 
 const r1 = rectangle(2, 5)
@@ -150,10 +151,10 @@ You can avoid the issue with accidental overrides of object property values by d
 
 ```javascript
 const rectangle = (length, width) => ({
-  length,
-  width,
-  getArea: () => length * width,
-  getTotalAreaWith: ({ getArea }) => length * width + getArea(), // <- Now it will work
+	length,
+	width,
+	getArea: () => length * width,
+	getTotalAreaWith: ({ getArea }) => length * width + getArea(), // <- Now it will work
 })
 
 const r1 = rectangle(2, 5)
@@ -186,19 +187,19 @@ In the example below, I create a `multiplyThunk` that is partially applied with 
 const multiplyThunk = (a, b) => () => a * b
 
 const rectangle = (length, width) => ({
-  length,
-  width,
-  getArea: multiplyThunk(length, width),
+	length,
+	width,
+	getArea: multiplyThunk(length, width),
 })
 
 const square = (length) => ({
-  length,
-  getArea: multiplyThunk(length, length),
+	length,
+	getArea: multiplyThunk(length, length),
 })
 
 const circle = (radius) => ({
-  radius,
-  getArea: multiplyThunk(Math.PI, radius ** 2),
+	radius,
+	getArea: multiplyThunk(Math.PI, radius ** 2),
 })
 ```
 
@@ -212,22 +213,22 @@ Although inheritance is not available to us with factory arrow functions, we can
 
 ```javascript
 const squarePerimeter = (length) => ({
-  getPerimeter: () => 4 * length,
+	getPerimeter: () => 4 * length,
 })
 
 const squareArea = (length) => ({
-  getArea: () => length ** 2,
+	getArea: () => length ** 2,
 })
 
 const LengthyShape = (...features) => (length) => ({
-  length,
-  ...features.reduce(
-    (acc, feature) => ({
-      ...acc,
-      ...feature(length),
-    }),
-    {},
-  ),
+	length,
+	...features.reduce(
+		(acc, feature) => ({
+			...acc,
+			...feature(length),
+		}),
+		{},
+	),
 })
 
 const squareWithPerimeter = LengthyShape(squarePerimeter)
@@ -250,8 +251,8 @@ With factory arrow functions, we can declare properties on the functions themsel
 
 ```javascript
 const Square = (length) => ({
-  length,
-  getArea: () => length ** 2,
+	length,
+	getArea: () => length ** 2,
 })
 
 Square.new = Square

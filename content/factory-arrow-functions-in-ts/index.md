@@ -11,6 +11,7 @@ image: ./hero.png
 imageAlt: Made by me with Procreate
 description: Use arrow functions for constructing objects in TypeScript. Part II.
 published: true
+imageShare: './og-image.png'
 ---
 
 This article continues [the discussion of using factory arrow functions](/blog/factory-arrow-functions-in-js/) and covers providing TypeScript type definitions for them. I highly recommend reading part I.

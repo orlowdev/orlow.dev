@@ -64,6 +64,7 @@ const PageTemplate = ({ data }) => {
 				title={post.frontmatter.title}
 				description={post.frontmatter.description}
 				url={post.fields.slug}
+				image={post.frontmatter.imageShare.publicURL}
 			/>
 			<Article itemScope itemType='http://schema.org/Article'>
 				<Hero Tag='section' fluid={post.frontmatter.image.sharp.fluid} fadeIn='soft'>

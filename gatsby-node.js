@@ -60,13 +60,15 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 			},
 		})
 
-		createPage({
-			path: `${node.fields.slug}image_share/`,
-			component: imageShareTemplate,
-			context: {
-				slug: node.fields.slug,
-			},
-		})
+		if (process.env.gatsby_executing_command.includes('develop')) {
+			createPage({
+				path: `${node.fields.slug}image_share/`,
+				component: imageShareTemplate,
+				context: {
+					slug: node.fields.slug,
+				},
+			})
+		}
 	})
 
 	const tags = result.data.tagsGroup.group

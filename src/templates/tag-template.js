@@ -6,6 +6,7 @@ import { Centralise } from '../components/centralise'
 import styled from '@emotion/styled'
 import { PostPreview } from '../components/post-preview'
 import { SmallText } from '../components/small-text'
+import Seo from '../components/seo'
 
 const List = styled.ul`
 	list-style: none;
@@ -15,6 +16,10 @@ const List = styled.ul`
 const TagTemplate = ({ pageContext, data }) => {
 	return (
 		<Layout>
+			<Seo
+				title={`Articles about #${pageContext.tag}`}
+				description={`This page contains all articles tagged with ${pageContext.tag}. Currently there are ${data.allMarkdownRemark.edges.length}.`}
+			/>
 			<Centralise>
 				<h1 itemProp='name headline'>#{pageContext.tag}</h1>
 
@@ -33,7 +38,10 @@ const TagTemplate = ({ pageContext, data }) => {
 					))}
 				</List>
 
-				<SmallText>This page contains all articles tagged with #{pageContext.tag}.</SmallText>
+				<SmallText>
+					This page contains all articles tagged with #{pageContext.tag}. Currently there are
+					<strong> {data.allMarkdownRemark.edges.length}</strong>.
+				</SmallText>
 			</Centralise>
 		</Layout>
 	)

@@ -11,6 +11,7 @@ image: ./dayne-topkin-remote.jpg
 imageAlt: Photo by Dayne Topkin (Unsplash)
 description: This post contains my point of view on what is important to make a meeting (or pretty much every discussion) pleasant and efficient.
 published: true
+imageShare: './og-image.png'
 ---
 
 One of the problems I observe in communication (and I have this problem myself) is that we _imply_ things.
@@ -158,15 +159,15 @@ with where you left off. Leave them a message, saying that there's a track to wa
 
 [^1]:
 
-  **RACI** matrix, also known as **REM** (Responsibility Assignment Matrix) or **LRC** (Linear Responsibility Chart)
-  is a way to describe the participation by various roles in doing things. There are four roles:
+**RACI** matrix, also known as **REM** (Responsibility Assignment Matrix) or **LRC** (Linear Responsibility Chart)
+is a way to describe the participation by various roles in doing things. There are four roles:
 
-  |    Role     | Participation                             |
-  | :---------: | ----------------------------------------- |
-  | Responsible | those who do the work                     |
-  | Accountable | those who are answerable for the delivery |
-  |  Consulted  | people whose opinion is sought            |
-  |  Informed   | kept up-to-date on progress               |
+|    Role     | Participation                             |
+| :---------: | ----------------------------------------- |
+| Responsible | those who do the work                     |
+| Accountable | those who are answerable for the delivery |
+|  Consulted  | people whose opinion is sought            |
+|  Informed   | kept up-to-date on progress               |
 
-  You can get a RACI matrix template [here](https://www.teamgantt.com/blog/raci-chart-definition-tips-and-example)
-  if you are interested. All the credits go to [TeamGantt.com](https://www.teamgantt.com/).
+You can get a RACI matrix template [here](https://www.teamgantt.com/blog/raci-chart-definition-tips-and-example)
+if you are interested. All the credits go to [TeamGantt.com](https://www.teamgantt.com/).

@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Helmet } from 'react-helmet'
 import { useSiteMetadata } from '../hooks/use-site-metadata'
+import { graphql, useStaticQuery } from 'gatsby'
 
 const Seo = ({
 	url,
@@ -20,6 +21,16 @@ const Seo = ({
 		description: defaultDescription,
 	} = useSiteMetadata()
 
+	const { defaultImage } = useStaticQuery(graphql`
+		query FixedImages {
+			defaultImage: file(relativePath: { eq: "img/og.jpg" }) {
+				sharp: childImageSharp {
+					...OpenGraphImage
+				}
+			}
+		}
+	`)
+
 	if (url && !url.startsWith('https')) {
 		url = `${defaultUrl}${url}`
 	}
@@ -28,6 +39,11 @@ const Seo = ({
 
 	const metaTitle = title || defaultTitle
 	const metaUrl = url || defaultUrl
+	let metaImage = image || defaultImage.sharp.fixed.src
+
+	if (!metaImage.startsWith('https')) {
+		metaImage = defaultUrl.concat(metaImage)
+	}
 
 	const defaultMeta = [
 		{ name: 'description', content: metaDescription },
@@ -66,6 +82,18 @@ const Seo = ({
 		{
 			name: 'twitter:card',
 			content: 'summary_large_image',
+		},
+		{
+			property: 'og:image',
+			content: metaImage,
+		},
+		{
+			property: 'og:image:width',
+			content: '1200',
+		},
+		{
+			property: 'og:image:height',
+			content: '630',
 		},
 	]
 

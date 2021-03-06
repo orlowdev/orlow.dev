@@ -11,6 +11,7 @@ image: ./hero.png
 imageAlt: Made by me with Procreate
 description: This post describes differences between functional and nonfunctional requirements and how they affect developers' working hours and software development lifecycle.
 published: true
+imageShare: './og-image.png'
 ---
 
 Hey there!

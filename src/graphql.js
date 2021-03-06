@@ -21,6 +21,9 @@ export const postPageFragment = graphql`
 			date(formatString: "DD MMMM, YYYY")
 			description
 			imageAlt
+			imageShare {
+				publicURL
+			}
 			image {
 				sharp: childImageSharp {
 					fluid(quality: 100) {
