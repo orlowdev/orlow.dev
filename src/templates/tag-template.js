@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import { Layout } from '../layout'
 import { Centralise } from '../components/centralise'
@@ -29,6 +30,11 @@ const TagTemplate = ({ pageContext, data }) => {
 			</Centralise>
 		</Layout>
 	)
+}
+
+TagTemplate.propTypes = {
+	pageContext: PropTypes.object,
+	data: PropTypes.object,
 }
 
 export default TagTemplate

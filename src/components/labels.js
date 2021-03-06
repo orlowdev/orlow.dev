@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from '@emotion/styled'
+import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
-import { Colours } from '../colours'
 
 export const Label = styled.span`
 	padding: 0.25rem 0.5rem;
@@ -35,10 +35,15 @@ export const Labels = ({ from, limit = 0 }) => {
 	return (
 		<List>
 			{tags.map((tag, i) => (
-				<Label key={tag || key}>
+				<Label key={tag || i}>
 					<Link to={`/tags/${tag}/`}>#{tag}</Link>
 				</Label>
 			))}
 		</List>
 	)
+}
+
+Labels.propTypes = {
+	from: PropTypes.array,
+	limit: PropTypes.number,
 }

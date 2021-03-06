@@ -1,3 +1,5 @@
+import React from 'react'
+import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
 import { Link } from 'gatsby'
 import { Colours } from '../colours'
@@ -75,3 +77,7 @@ export const PostPreview = ({ post }) => (
 		</Column>
 	</PostPreviewSection>
 )
+
+PostPreview.propTypes = {
+	post: PropTypes.object,
+}

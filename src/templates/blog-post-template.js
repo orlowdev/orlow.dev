@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import BackgroundImage from 'gatsby-background-image'
 import styled from '@emotion/styled'
@@ -57,14 +58,18 @@ const PageTemplate = ({ data }) => {
 				<Labels from={post.frontmatter.tags} />
 				<div dangerouslySetInnerHTML={{ __html: post.html }} />
 				<SmallText>
-					I don&apos;t have comments set up on my blog. But I'd be glad to hear your thoughts on
-					what you&apos;ve just read. If you would like to discuss something, we can have a chat on{' '}
-					<OutboundLink href={ExternalRoutes.TWITTER}>Twitter</OutboundLink> or{' '}
+					I don&apos;t have comments set up on my blog. But I&apos;d be glad to hear your thoughts
+					on what you&apos;ve just read. If you would like to discuss something, we can have a chat
+					on <OutboundLink href={ExternalRoutes.TWITTER}>Twitter</OutboundLink> or{' '}
 					<OutboundLink href={ExternalRoutes.INSTAGRAM}>Instagram</OutboundLink>.
 				</SmallText>
 			</Centralise>
 		</Layout>
 	)
+}
+
+PageTemplate.propTypes = {
+	data: PropTypes.object,
 }
 
 export default PageTemplate

@@ -1,5 +1,6 @@
 import styled from '@emotion/styled'
-import { graphql, Link } from 'gatsby'
+import PropTypes from 'prop-types'
+import { graphql } from 'gatsby'
 import React from 'react'
 import { Centralise } from '../components/centralise'
 import { Layout } from '../layout'
@@ -24,6 +25,10 @@ const Index = ({ data }) => (
 		</Centralise>
 	</Layout>
 )
+
+Index.propTypes = {
+	data: PropTypes.object,
+}
 
 export default Index
 
