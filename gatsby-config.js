@@ -184,5 +184,6 @@ module.exports = {
 				showSpinner: true,
 			},
 		},
+		'gatsby-plugin-robots-txt',
 	],
 }
