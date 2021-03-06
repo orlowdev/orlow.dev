@@ -10,6 +10,7 @@ export const postPageFragment = graphql`
 			title
 			song
 			tags
+			date(formatString: "DD MMMM, YYYY")
 			description
 			imageAlt
 			image {

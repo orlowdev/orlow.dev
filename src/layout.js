@@ -80,7 +80,7 @@ const GlobalStyles = () => (
 			blockquote {
 				padding: 1rem;
 				border: 0;
-				font-size: 0.8rem;
+				font-size: 0.9rem;
 				border-radius: 4px;
 				background-color: #fefefe;
 				border-left: 3px solid ${Colours.PRIMARY};
@@ -122,11 +122,13 @@ export const Layout = ({ children }) => (
 	<>
 		<GlobalStyles />
 		<Header />
-		<Main>{children}</Main>
+		<Main role='main' itemScope itemProp='mainContentOfPage'>
+			{children}
+		</Main>
 		<Footer />
 	</>
 )
 
 Layout.propTypes = {
-	children: PropTypes.object,
+	children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
 }

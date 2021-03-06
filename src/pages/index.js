@@ -5,6 +5,7 @@ import React from 'react'
 import { Centralise } from '../components/centralise'
 import { Layout } from '../layout'
 import { PostPreview } from '../components/post-preview'
+import Seo from '../components/seo'
 
 const List = styled.ul`
 	list-style: none;
@@ -13,11 +14,19 @@ const List = styled.ul`
 
 const Index = ({ data }) => (
 	<Layout>
+		<Seo />
 		<Centralise>
-			<h1>Recent Posts</h1>
-			<List>
-				{data.allMarkdownRemark.edges.map(({ node }) => (
-					<li key={node.fields.slug}>
+			<h1 itemProp='name headline'>Recent Posts</h1>
+			<List itemScope itemType='https://schema.org/ItemList'>
+				{data.allMarkdownRemark.edges.map(({ node }, i) => (
+					<li
+						key={node.fields.slug}
+						itemProp='itemListElement'
+						itemScope
+						itemType='https://schema.org/ListItem'
+					>
+						<meta css={{ display: 'none' }} itemProp='position' content={i + 1} />
+						<meta itemProp='name headline' content={node.frontmatter.title} />
 						<PostPreview post={node} />
 					</li>
 				))}

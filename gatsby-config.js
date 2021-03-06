@@ -12,7 +12,7 @@ const {
 const isNetlifyProduction = NETLIFY_ENV == 'production'
 
 const siteUrl = isNetlifyProduction ? NETLIFY_SITE_URL : NETLIFY_DEPLOY_URL
-const title = '||↓'
+const title = 'Hi'
 const description =
 	'Tips on how to grow as a software developer, improve productivity, boost management and leadership skills, and jump into tracks beyond software engineering'
 const name = 'Sergei Orlow'

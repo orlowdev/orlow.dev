@@ -6,6 +6,7 @@ import { Colours } from '../colours'
 import GatsbyImage from 'gatsby-image'
 import { TimeToRead } from './time-to-read'
 import { Labels } from './labels'
+import { useSiteMetadata } from '../hooks/use-site-metadata'
 
 const PostImage = styled(GatsbyImage)`
 	border: 0;
@@ -50,33 +51,48 @@ const Column = styled.div`
 	max-width: calc(1000px - 5rem - 300px);
 `
 
-export const PostPreview = ({ post }) => (
-	<PostPreviewSection>
-		<Link to={post.fields.slug}>
-			<PostImage
-				title={post.frontmatter.title}
-				fixed={post.frontmatter.image.sharp.fixed}
-				alt={post.frontmatter.imageAlt}
-				fadeIn
-			/>
-		</Link>
-		<Column>
-			<h1>
-				<PostLink to={post.fields.slug}>
-					{post.frontmatter.title}
-					<PostDate> - {post.frontmatter.date}</PostDate>
-				</PostLink>
-			</h1>
-			<p>
-				<TimeToRead timeToRead={post.timeToRead} />
-			</p>
-			<p>
-				{post.excerpt} <ReadLink to={post.fields.slug}>Read post →</ReadLink>
-			</p>
-			<Labels from={post.frontmatter.tags} />
-		</Column>
-	</PostPreviewSection>
-)
+export const PostPreview = ({ post }) => {
+	const { siteUrl } = useSiteMetadata()
+	const pageUrl = `${siteUrl}${post.fields.slug}`
+	const imageUrl = `${siteUrl}${post.frontmatter.image.sharp.fixed.src}`
+
+	return (
+		<PostPreviewSection itemProp='item' itemScope itemType='https://schema.org/Article'>
+			<Link to={post.fields.slug}>
+				<PostImage
+					title={post.frontmatter.title}
+					fixed={post.frontmatter.image.sharp.fixed}
+					alt={post.frontmatter.imageAlt}
+					fadeIn
+				/>
+			</Link>
+			<Column>
+				<h2>
+					<PostLink itemProp='url' to={post.fields.slug}>
+						<span itemProp='name headline'>{post.frontmatter.title}</span>
+						<PostDate>
+							{' '}
+							- <span itemProp='datePublished'>{post.frontmatter.date}</span>
+						</PostDate>
+					</PostLink>
+				</h2>
+
+				<meta itemProp='headline' content={post.frontmatter.title} />
+				<meta itemProp='url' content={pageUrl} />
+				<meta itemProp='description' content={post.frontmatter.description} />
+				<meta itemProp='image' content={imageUrl} />
+
+				<p>
+					<TimeToRead timeToRead={post.timeToRead} />
+				</p>
+				<p>
+					{post.excerpt} <ReadLink to={post.fields.slug}>Read post →</ReadLink>
+				</p>
+				<Labels from={post.frontmatter.tags} />
+			</Column>
+		</PostPreviewSection>
+	)
+}
 
 PostPreview.propTypes = {
 	post: PropTypes.object,

@@ -60,29 +60,29 @@ const IconSpan = styled.span`
 const Icon = ({ svg }) => <IconSpan dangerouslySetInnerHTML={{ __html: svg }} />
 
 export const Header = () => (
-	<StyledHeader>
+	<StyledHeader itemScope itemType='http://schema.org/WPHeader'>
 		<LogoLink to='/'>
 			<Logo>||↓</Logo>
 		</LogoLink>
-		<nav>
+		<nav role='navigation' itemScope itemType='http://schema.org/SiteNavigationElement'>
 			<List>
-				<Item>
-					<OutboundLink rel='nofollow' href={ExternalRoutes.INSTAGRAM}>
+				<Item itemProp='name'>
+					<OutboundLink rel='nofollow' href={ExternalRoutes.INSTAGRAM} itemProp='url'>
 						<Icon svg={InstagramIcon.svg} />
 					</OutboundLink>
 				</Item>
-				<Item>
-					<OutboundLink rel='nofollow' href={ExternalRoutes.TWITTER}>
+				<Item itemProp='name'>
+					<OutboundLink rel='nofollow' href={ExternalRoutes.TWITTER} itemProp='url'>
 						<Icon svg={TwitterIcon.svg} />
 					</OutboundLink>
 				</Item>
-				<Item>
-					<OutboundLink rel='nofollow' href={ExternalRoutes.YOUTUBE}>
+				<Item itemProp='name'>
+					<OutboundLink rel='nofollow' href={ExternalRoutes.YOUTUBE} itemProp='url'>
 						<Icon svg={YouTubeIcon.svg} />
 					</OutboundLink>
 				</Item>
-				<Item>
-					<OutboundLink rel='nofollow' href={ExternalRoutes.GITHUB}>
+				<Item itemProp='name'>
+					<OutboundLink rel='nofollow' href={ExternalRoutes.GITHUB} itemProp='url'>
 						<Icon svg={GitHubIcon.svg} />
 					</OutboundLink>
 				</Item>

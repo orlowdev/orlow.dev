@@ -16,11 +16,18 @@ const TagTemplate = ({ pageContext, data }) => {
 	return (
 		<Layout>
 			<Centralise>
-				<h1>#{pageContext.tag}</h1>
+				<h1 itemProp='name headline'>#{pageContext.tag}</h1>
 
-				<List>
-					{data.allMarkdownRemark.edges.map(({ node }) => (
-						<li key={node.fields.slug}>
+				<List itemScope itemType='https://schema.org/ItemList'>
+					{data.allMarkdownRemark.edges.map(({ node }, i) => (
+						<li
+							key={node.fields.slug}
+							itemProp='itemListElement'
+							itemScope
+							itemType='https://schema.org/ListItem'
+						>
+							<meta css={{ display: 'none' }} itemProp='position' content={i + 1} />
+							<meta itemProp='name headline' content={node.frontmatter.title} />
 							<PostPreview post={node} />
 						</li>
 					))}
