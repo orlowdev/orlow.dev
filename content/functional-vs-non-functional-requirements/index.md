@@ -8,7 +8,7 @@ tags:
   - software-architecture
 song: https://music.apple.com/ru/album/july/1477633578?i=1477633693&l=en
 image: ./hero.png
-imageAlt: Made by me with Procreate
+imageAlt: Me and Procreate
 description: This post describes differences between functional and nonfunctional requirements and how they affect developers' working hours and software development lifecycle.
 published: true
 imageShare: './og-image.png'

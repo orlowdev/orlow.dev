@@ -7,7 +7,7 @@ tags:
   - patterns
 song: https://music.apple.com/ru/album/strawberry-avalanche-album-version-album-version/372624794?i=372624816&l=en
 image: ./hero.png
-imageAlt: Made by me with Procreate
+imageAlt: Me and Procreate
 description: Use arrow functions for constructing objects in JavaScript. Part I.
 published: true
 imageShare: './og-image.png'

@@ -8,7 +8,7 @@ tags:
   - patterns
 song: https://music.apple.com/ru/album/%D0%BC%D0%B5%D0%B6%D0%B4%D1%83-%D0%BD%D0%B0%D0%BC%D0%B8-%D0%BB%D1%8E%D0%B1%D0%BE%D0%B2%D1%8C/1235041084?i=1235041086&l=en
 image: ./hero.png
-imageAlt: Made by me with Procreate
+imageAlt: Me and Procreate
 description: Use arrow functions for constructing objects in TypeScript. Part II.
 published: true
 imageShare: './og-image.png'
