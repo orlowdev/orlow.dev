@@ -60,7 +60,7 @@ const main = async () => {
 
 	for (let i = 0; i < files.length; i++) {
 		const file = files[i]
-		const destinationFile = join(file.directory, `${file.slug}-share.png`)
+		const destinationFile = join(file.directory, `og-image.png`)
 
 		if (file['generate-card'] !== false && !existsSync(destinationFile)) {
 			await takeScreenshot(`${baseUrl}${file.slug}/image_share`, 1200, 630, destinationFile)
