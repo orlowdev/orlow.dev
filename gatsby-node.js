@@ -20,6 +20,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
 	const blogPostTemplate = path.resolve('src/templates/blog-post-template.js')
 	const tagTemplate = path.resolve('src/templates/tag-template.js')
+	const imageShareTemplate = path.resolve('src/templates/blog-post-share-image.js')
 
 	const result = await graphql(`
 		{
@@ -50,15 +51,23 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
 	const posts = result.data.postsRemark.edges
 
-	posts.forEach(({ node }) =>
+	posts.forEach(({ node }) => {
 		createPage({
 			path: node.fields.slug,
 			component: blogPostTemplate,
 			context: {
 				slug: node.fields.slug,
 			},
-		}),
-	)
+		})
+
+		createPage({
+			path: `${node.fields.slug}image_share/`,
+			component: imageShareTemplate,
+			context: {
+				slug: node.fields.slug,
+			},
+		})
+	})
 
 	const tags = result.data.tagsGroup.group
 

@@ -1,5 +1,13 @@
 import { graphql } from 'gatsby'
 
+export const openGraphImageFragment = graphql`
+	fragment OpenGraphImage on ImageSharp {
+		fixed(width: 1200, height: 630) {
+			...GatsbyImageSharpFixed_withWebp
+		}
+	}
+`
+
 export const postPageFragment = graphql`
 	fragment PostPage on MarkdownRemark {
 		html

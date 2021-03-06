@@ -9,7 +9,7 @@ const {
 	CONTEXT: NETLIFY_ENV = NODE_ENV,
 } = process.env
 
-const isNetlifyProduction = NETLIFY_ENV == 'production'
+const isNetlifyProduction = NETLIFY_ENV === 'production'
 
 const siteUrl = isNetlifyProduction ? NETLIFY_SITE_URL : NETLIFY_DEPLOY_URL
 const title = 'Hi'
@@ -45,6 +45,13 @@ module.exports = {
 			options: {
 				name: 'content',
 				path: `${__dirname}/content/`,
+			},
+		},
+		{
+			resolve: 'gatsby-source-filesystem',
+			options: {
+				name: 'assets',
+				path: `${__dirname}/assets/`,
 			},
 		},
 		{
