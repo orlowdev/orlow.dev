@@ -8,7 +8,6 @@ import YouTubeIcon from 'simple-icons/icons/youtube'
 import GitHubIcon from 'simple-icons/icons/github'
 import { ExternalRoutes } from '../routes'
 import { Link } from 'gatsby'
-import { Colours } from '../colours'
 
 const StyledHeader = styled.header`
 	display: flex;
@@ -41,10 +40,11 @@ const LogoLink = styled(Link)`
 
 const Logo = styled.span`
 	font-family: Montserrat, system;
+	font-weight: 900;
 	font-size: 1rem;
 	vertical-align: center;
 	text-decoration: none;
-	color: ${Colours.PRIMARY};
+	color: #444;
 `
 
 const IconSpan = styled.span`

@@ -18,6 +18,9 @@ const GlobalStyles = () => (
 			:root {
 				--deckgo-highlight-code-carbon-box-shadow: 0 0 15px #0000000f;
 				--deckgo-highlight-code-carbon-background: #ffffff;
+				--deckgo-highlight-code-font-family: 'JetBrains Mono', monospace;
+				--deckgo-highlight-code-padding: 10px 36px;
+				--deckgo-highlight-code-carbon-toolbar-display: none;
 			}
 
 			@font-face {
@@ -30,7 +33,6 @@ const GlobalStyles = () => (
 			}
 
 			body {
-				font-family: system;
 				background-color: #fafafa;
 			}
 
@@ -50,7 +52,7 @@ const GlobalStyles = () => (
 				border: 0;
 				border-radius: 4px;
 				background-color: ${Colours.LIGHT};
-				font-family: 'Fira Code', monospace;
+				font-family: 'JetBrains Mono', monospace;
 			}
 
 			deckgo-highlight-code {
@@ -104,7 +106,7 @@ const GlobalStyles = () => (
 				background: ${Colours.LIGHT};
 				padding: 3px 8px;
 				border-radius: 50%;
-				font-family: 'Fira Code', monospace;
+				font-family: 'JetBrains Mono', monospace;
 
 				> a,
 				a:hover,

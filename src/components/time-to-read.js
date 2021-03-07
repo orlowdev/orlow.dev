@@ -8,7 +8,7 @@ const Wrapper = styled.span`
 
 export const TimeToRead = ({ timeToRead }) => (
 	<Wrapper>
-		Time to Read: {timeToRead} min {'⏱ '.repeat(Math.ceil(timeToRead / 8))}
+		Time to Read: {timeToRead} min {'⏱'.repeat(Math.ceil(timeToRead / 10))}
 	</Wrapper>
 )
 

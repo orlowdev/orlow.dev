@@ -7,7 +7,8 @@ export default new Typography({
 	headerFontFamily: ['Montserrat', 'system'],
 	headerColor: '#333',
 	headerWeight: '900',
-	bodyFontFamily: ['system'],
+	bodyWeight: '300',
+	bodyFontFamily: ['JetBrains Mono', 'system'],
 	bodyColor: '#444',
 	googleFonts: [
 		{
@@ -15,8 +16,8 @@ export default new Typography({
 			styles: ['900'],
 		},
 		{
-			name: 'Fira Code',
-			styles: ['400'],
+			name: 'JetBrains Mono',
+			styles: ['100', '300', '400', '700'],
 		},
 	],
 })
