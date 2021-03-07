@@ -6,7 +6,7 @@ import { useSiteMetadata } from '../hooks/use-site-metadata'
 const StyledFooter = styled.footer`
 	text-align: center;
 	padding: 2rem;
-	font-size: 0.6rem;
+	font-size: 1rem;
 	color: #ccc;
 `
 

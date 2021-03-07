@@ -17,7 +17,7 @@ export default new Typography({
 		},
 		{
 			name: 'JetBrains Mono',
-			styles: ['100', '300', '400', '700'],
+			styles: ['100', '300', '700'],
 		},
 	],
 })
