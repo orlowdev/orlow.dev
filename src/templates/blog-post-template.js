@@ -12,6 +12,7 @@ import { SmallText } from '../components/small-text'
 import { Colours } from '../colours'
 import { useSiteMetadata } from '../hooks/use-site-metadata'
 import Seo from '../components/seo'
+import SubscriptionForm from '../components/subscription-form'
 
 const Hero = styled(BackgroundImage)`
 	width: 100%;
@@ -114,6 +115,8 @@ const PageTemplate = ({ data }) => {
 						</a>
 						.
 					</SmallText>
+
+					<SubscriptionForm />
 				</Centralise>
 			</Article>
 		</Layout>

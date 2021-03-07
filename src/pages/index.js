@@ -6,6 +6,7 @@ import { Centralise } from '../components/centralise'
 import { Layout } from '../layout'
 import { PostPreview } from '../components/post-preview'
 import Seo from '../components/seo'
+import SubscriptionForm from '../components/subscription-form'
 
 const List = styled.ul`
 	list-style: none;
@@ -31,6 +32,8 @@ const Index = ({ data }) => (
 					</li>
 				))}
 			</List>
+
+			<SubscriptionForm />
 		</Centralise>
 	</Layout>
 )
