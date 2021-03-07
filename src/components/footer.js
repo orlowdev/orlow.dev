@@ -1,6 +1,5 @@
 import styled from '@emotion/styled'
 import { Link } from 'gatsby'
-import { OutboundLink } from 'gatsby-plugin-google-analytics'
 import React from 'react'
 import { useSiteMetadata } from '../hooks/use-site-metadata'
 
@@ -11,7 +10,7 @@ const StyledFooter = styled.footer`
 	color: #ccc;
 `
 
-const ExternalLink = styled(OutboundLink)`
+const ExternalLink = styled.a`
 	color: #ccc;
 `
 

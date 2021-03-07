@@ -97,6 +97,10 @@ const Seo = ({
 		},
 	]
 
+	/*
+
+	*/
+
 	const defaultScripts = []
 	const defaultLinks = []
 	const defaultBodyAttributes = {
@@ -115,7 +119,17 @@ const Seo = ({
 				...defaultBodyAttributes,
 				...bodyAttributes,
 			}}
-		/>
+		>
+			<script async src='https://www.googletagmanager.com/gtag/js?id=G-D8P33SEFSE'></script>
+			<script>
+				{`window.dataLayer = window.dataLayer || [];
+						function gtag(){dataLayer.push(arguments);}
+						gtag('js', new Date());
+
+						gtag('config', 'G-D8P33SEFSE');
+				`}
+			</script>
+		</Helmet>
 	)
 }
 

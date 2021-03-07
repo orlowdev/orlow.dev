@@ -143,17 +143,6 @@ module.exports = {
 		'gatsby-plugin-sharp',
 		'gatsby-transformer-sharp',
 		{
-			resolve: 'gatsby-plugin-google-analytics',
-			options: {
-				trackingId: 'G-D8P33SEFSE',
-				anonymize: true,
-				respectDNT: true,
-				pageTransitionDelay: 0,
-				defer: false,
-				cookieDomain: 'orlow.dev',
-			},
-		},
-		{
 			resolve: 'gatsby-plugin-manifest',
 			options: {
 				name: '||↓',

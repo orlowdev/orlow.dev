@@ -5,7 +5,6 @@ import BackgroundImage from 'gatsby-background-image'
 import styled from '@emotion/styled'
 import { Layout } from '../layout'
 import { Centralise } from '../components/centralise'
-import { OutboundLink } from 'gatsby-plugin-google-analytics'
 import { ExternalRoutes } from '../routes'
 import { defineCustomElements } from '@deckdeckgo/highlight-code/dist/loader'
 import { Labels } from '../components/labels'
@@ -88,9 +87,9 @@ const PageTemplate = ({ data }) => {
 						<span itemProp='author' itemScope itemType='http://schema.org/Person'>
 							{' '}
 							<span itemProp='name'>
-								<OutboundLink rel='nofollow' href={siteUrl} itemProp='url'>
+								<a rel='nofollow' href={siteUrl} itemProp='url'>
 									Sergei Orlow
-								</OutboundLink>
+								</a>
 							</span>
 						</span>
 					</p>
@@ -105,8 +104,15 @@ const PageTemplate = ({ data }) => {
 					<SmallText>
 						I don&apos;t have comments set up on my blog. But I&apos;d be glad to hear your thoughts
 						on what you&apos;ve just read. If you would like to discuss something, we can have a
-						chat on <OutboundLink href={ExternalRoutes.TWITTER}>Twitter</OutboundLink> or{' '}
-						<OutboundLink href={ExternalRoutes.INSTAGRAM}>Instagram</OutboundLink>.
+						chat on{' '}
+						<a rel='nofollow' href={ExternalRoutes.TWITTER}>
+							Twitter
+						</a>{' '}
+						or{' '}
+						<a rel='nofollow' href={ExternalRoutes.INSTAGRAM}>
+							Instagram
+						</a>
+						.
 					</SmallText>
 				</Centralise>
 			</Article>

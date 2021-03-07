@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import { OutboundLink } from 'gatsby-plugin-google-analytics'
 import PropTypes from 'prop-types'
 import TwitterIcon from 'simple-icons/icons/twitter'
 import InstagramIcon from 'simple-icons/icons/instagram'
@@ -67,24 +66,24 @@ export const Header = () => (
 		<nav role='navigation' itemScope itemType='http://schema.org/SiteNavigationElement'>
 			<List>
 				<Item itemProp='name'>
-					<OutboundLink rel='nofollow' href={ExternalRoutes.INSTAGRAM} itemProp='url'>
+					<a rel='nofollow' href={ExternalRoutes.INSTAGRAM} itemProp='url'>
 						<Icon svg={InstagramIcon.svg} />
-					</OutboundLink>
+					</a>
 				</Item>
 				<Item itemProp='name'>
-					<OutboundLink rel='nofollow' href={ExternalRoutes.TWITTER} itemProp='url'>
+					<a rel='nofollow' href={ExternalRoutes.TWITTER} itemProp='url'>
 						<Icon svg={TwitterIcon.svg} />
-					</OutboundLink>
+					</a>
 				</Item>
 				<Item itemProp='name'>
-					<OutboundLink rel='nofollow' href={ExternalRoutes.YOUTUBE} itemProp='url'>
+					<a rel='nofollow' href={ExternalRoutes.YOUTUBE} itemProp='url'>
 						<Icon svg={YouTubeIcon.svg} />
-					</OutboundLink>
+					</a>
 				</Item>
 				<Item itemProp='name'>
-					<OutboundLink rel='nofollow' href={ExternalRoutes.GITHUB} itemProp='url'>
+					<a rel='nofollow' href={ExternalRoutes.GITHUB} itemProp='url'>
 						<Icon svg={GitHubIcon.svg} />
-					</OutboundLink>
+					</a>
 				</Item>
 			</List>
 		</nav>
