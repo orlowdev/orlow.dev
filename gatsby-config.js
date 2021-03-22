@@ -149,7 +149,7 @@ module.exports = {
 				short_name: '||↓',
 				start_url: '/',
 				background_color: '#fff',
-				theme_color: '#CEB3AB',
+				theme_color: '#94234A',
 				icon: 'assets/img/favicon.png',
 				display: 'standalone',
 				cache_busting_mode: 'none',
@@ -169,7 +169,7 @@ module.exports = {
 		{
 			resolve: 'gatsby-plugin-nprogress',
 			options: {
-				color: '#CEB3AB',
+				color: '#94234A',
 				showSpinner: true,
 			},
 		},

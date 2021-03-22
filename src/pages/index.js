@@ -8,6 +8,7 @@ import { PostPreview } from '../components/post-preview'
 import Seo from '../components/seo'
 import SubscriptionForm from '../components/subscription-form'
 import { Labels } from '../components/labels'
+import { PostPreviewSmall } from '../components/post-preview-small'
 
 const List = styled.ul`
 	list-style: none;
@@ -29,7 +30,7 @@ const Index = ({ data }) => (
 			</div>
 			<h2 itemProp='name headline'>Recent Posts</h2>
 			<List itemScope itemType='https://schema.org/ItemList'>
-				{data.allMarkdownRemark.edges.map(({ node }, i) => (
+				{data.allMarkdownRemark.edges.slice(0, 3).map(({ node }, i) => (
 					<li
 						key={node.fields.slug}
 						itemProp='itemListElement'
@@ -39,6 +40,23 @@ const Index = ({ data }) => (
 						<meta css={{ display: 'none' }} itemProp='position' content={i + 1} />
 						<meta itemProp='name headline' content={node.frontmatter.title} />
 						<PostPreview post={node} />
+					</li>
+				))}
+			</List>
+
+			<h2>More Posts</h2>
+
+			<List itemScope itemType='https://schema.org/ItemList'>
+				{data.smallPreview.edges.slice(3).map(({ node }, i) => (
+					<li
+						key={node.fields.slug}
+						itemProp='itemListElement'
+						itemScope
+						itemType='https://schema.org/ListItem'
+					>
+						<meta css={{ display: 'none' }} itemProp='position' content={i + 1} />
+						<meta itemProp='name headline' content={node.frontmatter.title} />
+						<PostPreviewSmall post={node} />
 					</li>
 				))}
 			</List>
@@ -63,6 +81,16 @@ export const query = graphql`
 			edges {
 				node {
 					...PostPreview
+				}
+			}
+		}
+		smallPreview: allMarkdownRemark(
+			filter: { fileAbsolutePath: { regex: "/content/" }, frontmatter: { published: { eq: true } } }
+			sort: { order: DESC, fields: frontmatter___date }
+		) {
+			edges {
+				node {
+					...PostPreviewSmall
 				}
 			}
 		}

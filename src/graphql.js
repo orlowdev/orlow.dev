@@ -59,3 +59,28 @@ export const postPreviewFragment = graphql`
 		timeToRead
 	}
 `
+
+export const postPreviewSmallFragment = graphql`
+	fragment PostPreviewSmall on MarkdownRemark {
+		frontmatter {
+			title
+			date(formatString: "DD MMMM, YYYY")
+			description
+			tags
+			song
+			imageAlt
+			image {
+				sharp: childImageSharp {
+					fixed(quality: 90, width: 100, height: 100) {
+						...GatsbyImageSharpFixed_withWebp
+					}
+				}
+			}
+		}
+		fields {
+			slug
+		}
+		excerpt(pruneLength: 150)
+		timeToRead
+	}
+`
