@@ -102,6 +102,9 @@ const PageTemplate = ({ data }) => {
 
 					<Labels from={post.frontmatter.tags} />
 					<div itemProp='articleBody' dangerouslySetInnerHTML={{ __html: post.html }} />
+
+					<SubscriptionForm />
+
 					<SmallText>
 						I don&apos;t have comments set up on my blog. But I&apos;d be glad to hear your thoughts
 						on what you&apos;ve just read. If you would like to discuss something, we can have a
@@ -115,8 +118,6 @@ const PageTemplate = ({ data }) => {
 						</a>
 						.
 					</SmallText>
-
-					<SubscriptionForm />
 				</Centralise>
 			</Article>
 		</Layout>

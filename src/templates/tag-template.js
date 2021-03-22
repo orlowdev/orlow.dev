@@ -39,12 +39,12 @@ const TagTemplate = ({ pageContext, data }) => {
 					))}
 				</List>
 
+				<SubscriptionForm />
+
 				<SmallText>
 					This page contains all articles tagged with #{pageContext.tag}. Currently there are
 					<strong> {data.allMarkdownRemark.edges.length}</strong>.
 				</SmallText>
-
-				<SubscriptionForm />
 			</Centralise>
 		</Layout>
 	)
