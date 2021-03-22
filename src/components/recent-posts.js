@@ -7,7 +7,7 @@ export const RecentPosts = styled.ul`
 	list-style: none;
 	margin: 0;
 	padding: 2rem 1rem 0;
-	justify-content: space-between;
+	justify-content: center;
 
 	> li {
 		flex-grow: 1;
