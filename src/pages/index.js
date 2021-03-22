@@ -7,6 +7,7 @@ import { Layout } from '../layout'
 import { PostPreview } from '../components/post-preview'
 import Seo from '../components/seo'
 import SubscriptionForm from '../components/subscription-form'
+import { Labels } from '../components/labels'
 
 const List = styled.ul`
 	list-style: none;
@@ -17,7 +18,16 @@ const Index = ({ data }) => (
 	<Layout>
 		<Seo />
 		<Centralise>
-			<h1 itemProp='name headline'>Recent Posts</h1>
+			<div>
+				<h2>Top Tags</h2>
+				<Labels
+					from={data.tagsGroup.group
+						.sort((a, b) => b.totalCount - a.totalCount)
+						.slice(0, 5)
+						.map((tag) => tag.fieldValue)}
+				/>
+			</div>
+			<h2 itemProp='name headline'>Recent Posts</h2>
 			<List itemScope itemType='https://schema.org/ItemList'>
 				{data.allMarkdownRemark.edges.map(({ node }, i) => (
 					<li
@@ -54,6 +64,12 @@ export const query = graphql`
 				node {
 					...PostPreview
 				}
+			}
+		}
+		tagsGroup: allMarkdownRemark {
+			group(field: frontmatter___tags) {
+				fieldValue
+				totalCount
 			}
 		}
 	}
