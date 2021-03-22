@@ -20,8 +20,8 @@ This article describes an alternative approach to instantiating objects from a t
 
 ## It's a Series
 
-- [Factory Arrow Functions in JavaScript (part I)](/blog/factory-arrow-functions-in-js)
-- [Factory Arrow Functions in TypeScript (part II)](/blog/factory-arrow-functions-in-ts)
+- [Factory Arrow Functions in JavaScript (part I)](/2020/09/factory-arrow-functions-in-js)
+- [Factory Arrow Functions in TypeScript (part II)](/2020/09/factory-arrow-functions-in-ts)
 
 ## ES6 Class Recap
 
@@ -263,6 +263,6 @@ s.getArea() // 100
 
 ## Conclusion
 
-This article covered using factory arrow functions in JavaScript. [In the next one](/blog/factory-arrow-functions-in-ts/), I extend the topic by covering factory arrow function usage with TypeScript.
+This article covered using factory arrow functions in JavaScript. [In the next one](/2020/09/factory-arrow-functions-in-ts/), I extend the topic by covering factory arrow function usage with TypeScript.
 
 I hope you enjoyed the read!

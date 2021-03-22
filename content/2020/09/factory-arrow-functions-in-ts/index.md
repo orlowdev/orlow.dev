@@ -14,15 +14,15 @@ published: true
 imageShare: './og-image.png'
 ---
 
-This article continues [the discussion of using factory arrow functions](/blog/factory-arrow-functions-in-js/) and covers providing TypeScript type definitions for them. I highly recommend reading part I.
+This article continues [the discussion of using factory arrow functions](/2020/09/factory-arrow-functions-in-js/) and covers providing TypeScript type definitions for them. I highly recommend reading part I.
 
 > **DISCLAIMER**
 > The term `factory arrow function` is made up as I couldn't succeed in googling for a proper name for that. I avoid calling it `factory function` because it is an existing term that means a different thing. If you know the correct name for the concept covered in this article, please, share it in a comment - I'd be glad to find out.
 
 ## It's a Series
 
-- [Factory Arrow Functions in JavaScript (part I)](/blog/factory-arrow-functions-in-js)
-- [Factory Arrow Functions in TypeScript (part II)](/blog/factory-arrow-functions-in-ts)
+- [Factory Arrow Functions in JavaScript (part I)](/2020/09/factory-arrow-functions-in-js)
+- [Factory Arrow Functions in TypeScript (part II)](/2020/09/factory-arrow-functions-in-ts)
 
 ## Type Inference
 

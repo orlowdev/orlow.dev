@@ -124,7 +124,7 @@ Of course, these examples are completely made up and cannot ever happen. Or can 
 
 ## What to do next
 
-If you have any questions, feel free to tweet at me - [@orlovedev](https://twitter.com/orlovedev).
+If you have any questions, feel free to tweet at me - [@orlowdev](https://twitter.com/orlowdev).
 
 [^1]: **BABOK** - Business Analysis Body of Knowledge
 [^2]: **IEEE** (pronounced I-triple-E) - Institute of Electrical and Electronics Engineers

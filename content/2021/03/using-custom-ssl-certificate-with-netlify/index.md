@@ -29,11 +29,11 @@ Apart from that, modern domains like _.dev_ come bundled with a free SSL certifi
 
 In most cases, if you obtained `certificate.pem`, `private.key` and `cert-ca.pem` (or something like that) for your SSL, you won't have any issues with this as you simply need to put three strings in corresponding inputs - the certificate itself, its private key, and so called Certificate Authority (CA) information. When it comes to Netlify, you just need to:
 
-1. go to netlify.com
-2. your site
-3. **⚙️ Domain settings**
+1. go to [netlify.com](https://netlify.com/)
+2. pick your site
+3. click **⚙️ Domain settings**
 4. scroll down to **HTTPS** section
-5. Click **Install custom certificate**
+5. click **Install custom certificate**
 
 You should see something like this:
 
