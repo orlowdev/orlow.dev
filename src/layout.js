@@ -39,8 +39,6 @@ const GlobalStyles = () => (
 
 			h1 {
 				font-size: 2.5rem;
-				padding: 1rem 0;
-				text-align: center;
 			}
 
 			h2 {

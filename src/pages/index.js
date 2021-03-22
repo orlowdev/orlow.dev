@@ -9,6 +9,7 @@ import Seo from '../components/seo'
 import SubscriptionForm from '../components/subscription-form'
 import { PostPreviewSmall } from '../components/post-preview-small'
 import { TopTags } from '../components/top-tags'
+import { RecentPosts } from '../components/recent-posts'
 
 const List = styled.ul`
 	list-style: none;
@@ -18,37 +19,24 @@ const List = styled.ul`
 const Index = ({ data }) => (
 	<Layout>
 		<Seo />
+		<RecentPosts itemScope itemType='https://schema.org/ItemList'>
+			{data.allMarkdownRemark.edges.slice(0, 3).map(({ node }, i) => (
+				<li
+					key={node.fields.slug}
+					itemProp='itemListElement'
+					itemScope
+					itemType='https://schema.org/ListItem'
+				>
+					<meta css={{ display: 'none' }} itemProp='position' content={i + 1} />
+					<meta itemProp='name headline' content={node.frontmatter.title} />
+					<PostPreview post={node} />
+				</li>
+			))}
+		</RecentPosts>
 
 		<Centralise>
-			<h1 itemProp='name headline'>
-				<span role='img' aria-label='Full hourglass'>
-					⏳
-				</span>{' '}
-				Recent Posts
-			</h1>
 			<List itemScope itemType='https://schema.org/ItemList'>
-				{data.allMarkdownRemark.edges.slice(0, 3).map(({ node }, i) => (
-					<li
-						key={node.fields.slug}
-						itemProp='itemListElement'
-						itemScope
-						itemType='https://schema.org/ListItem'
-					>
-						<meta css={{ display: 'none' }} itemProp='position' content={i + 1} />
-						<meta itemProp='name headline' content={node.frontmatter.title} />
-						<PostPreview post={node} />
-					</li>
-				))}
-			</List>
-			<h1>
-				<span role='img' aria-label='Empty hourglass'>
-					⌛️
-				</span>{' '}
-				More Posts
-			</h1>
-
-			<List itemScope itemType='https://schema.org/ItemList'>
-				{data.smallPreview.edges.slice(3).map(({ node }, i) => (
+				{data.allMarkdownRemark.edges.slice(3).map(({ node }, i) => (
 					<li
 						key={node.fields.slug}
 						itemProp='itemListElement'
@@ -83,16 +71,6 @@ export const query = graphql`
 			edges {
 				node {
 					...PostPreview
-				}
-			}
-		}
-		smallPreview: allMarkdownRemark(
-			filter: { fileAbsolutePath: { regex: "/content/" }, frontmatter: { published: { eq: true } } }
-			sort: { order: DESC, fields: frontmatter___date }
-		) {
-			edges {
-				node {
-					...PostPreviewSmall
 				}
 			}
 		}

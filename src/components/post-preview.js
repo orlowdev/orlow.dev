@@ -3,19 +3,22 @@ import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
 import { Link } from 'gatsby'
 import { Colours } from '../colours'
-import GatsbyImage from 'gatsby-image'
 import { TimeToRead } from './time-to-read'
 import { Labels } from './labels'
 import { useSiteMetadata } from '../hooks/use-site-metadata'
+import BackgroundImage from 'gatsby-background-image'
 
-const PostImage = styled(GatsbyImage)`
+const PostImage = styled(BackgroundImage)`
 	border: 0;
 	border-radius: 0.25rem;
 	margin-right: 1rem;
-	height: 300px;
-	width: 300px;
+	display: flex;
+	align-items: center;
+	flex-direction: row;
+	box-shadow: 0 0 15px #0000000f;
 
 	@media screen and (max-width: 662px) {
+		flex-direction: column;
 		margin-right: 0;
 	}
 `
@@ -35,36 +38,34 @@ const PostDate = styled.span`
 	color: #666;
 `
 
-const PostPreviewSection = styled.section`
-	display: flex;
-	align-items: center;
-	flex-direction: row;
-	@media screen and (max-width: 662px) {
-		flex-direction: column;
-	}
-`
-
 const Column = styled.div`
+	padding: 1rem;
 	display: flex;
 	flex-direction: column;
-	max-width: calc(1000px - 2rem - 300px);
+	background: -webkit-linear-gradient(#fafafabb, #ffffffff);
 `
 
 export const PostPreview = ({ post }) => {
 	const { siteUrl } = useSiteMetadata()
 	const pageUrl = `${siteUrl}${post.fields.slug}`
-	const imageUrl = `${siteUrl}${post.frontmatter.image.sharp.fixed.src}`
+	const imageUrl = `${siteUrl}${post.frontmatter.image.sharp.fluid.src}`
 
 	return (
-		<PostPreviewSection itemProp='item' itemScope itemType='https://schema.org/Article'>
-			<Link to={post.fields.slug}>
+		<PostImage
+			Tag='section'
+			itemProp='item'
+			itemScope
+			itemType='https://schema.org/Article'
+			fluid={post.frontmatter.image.sharp.fluid}
+		>
+			{/* <Link to={post.fields.slug}>
 				<PostImage
 					title={post.frontmatter.title}
 					fixed={post.frontmatter.image.sharp.fixed}
 					alt={post.frontmatter.imageAlt}
 					fadeIn
 				/>
-			</Link>
+			</Link> */}
 			<Column>
 				<h2>
 					<PostLink itemProp='url' to={post.fields.slug}>
@@ -89,7 +90,7 @@ export const PostPreview = ({ post }) => {
 				</p>
 				<Labels from={post.frontmatter.tags} />
 			</Column>
-		</PostPreviewSection>
+		</PostImage>
 	)
 }
 
