@@ -34,7 +34,7 @@ export const TopTags = () => {
 				from={data.tagsGroup.group
 					.sort((a, b) => b.totalCount - a.totalCount)
 					.slice(0, 5)
-					.map((tag) => `${tag.fieldValue} (${tag.totalCount})`)}
+					.map((tag) => tag.fieldValue)}
 			/>
 		</Tags>
 	)
