@@ -49,10 +49,9 @@ const Index = ({ data }) => (
 					</li>
 				))}
 			</List>
-
-			<SubscriptionForm />
 		</Centralise>
 		<TopTags />
+		<SubscriptionForm />
 	</Layout>
 )
 
