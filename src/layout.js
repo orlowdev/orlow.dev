@@ -117,6 +117,10 @@ const GlobalStyles = () => (
 					color: #444;
 				}
 			}
+
+			figure.gatsby-resp-image-figure {
+				margin: 2rem 0;
+			}
 		`}
 	/>
 )
