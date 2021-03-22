@@ -32,7 +32,7 @@ const ReadLink = styled(Link)`
 `
 
 const PostDate = styled.span`
-	color: #aaa;
+	color: ${Colours.PRIMARY};
 `
 
 const PostPreviewSection = styled.section`

@@ -74,7 +74,7 @@ const GlobalStyles = () => (
 
 			figcaption {
 				text-align: right;
-				color: #ccc;
+				color: ${Colours.ACCENT};
 				font-size: 0.8rem;
 				text-transform: uppercase;
 			}
@@ -84,12 +84,13 @@ const GlobalStyles = () => (
 				border: 0;
 				font-size: 0.9rem;
 				border-radius: 4px;
-				background-color: #fefefe;
-				border-left: 3px solid ${Colours.PRIMARY};
+				background-color: #fff;
+				box-shadow: 0 0 15px #0000000f;
+				border-left: 3px solid ${Colours.SECONDARY};
 			}
 
 			blockquote::before {
-				color: ${Colours.PRIMARY};
+				color: ${Colours.SECONDARY};
 				content: open-quote;
 				font-size: 4rem;
 				line-height: 0.1rem;
