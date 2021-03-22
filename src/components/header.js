@@ -9,6 +9,12 @@ import { ExternalRoutes } from '../routes'
 import { Link } from 'gatsby'
 
 const StyledHeader = styled.header`
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	background: #fff;
+	z-index: 2000;
 	display: flex;
 	justify-content: space-between;
 	padding: 1rem;

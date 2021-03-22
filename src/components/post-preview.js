@@ -47,7 +47,7 @@ const PostPreviewSection = styled.section`
 const Column = styled.div`
 	display: flex;
 	flex-direction: column;
-	max-width: calc(1000px - 5rem - 300px);
+	max-width: calc(1000px - 2rem - 300px);
 `
 
 export const PostPreview = ({ post }) => {
@@ -66,7 +66,7 @@ export const PostPreview = ({ post }) => {
 				/>
 			</Link>
 			<Column>
-				<h3>
+				<h2>
 					<PostLink itemProp='url' to={post.fields.slug}>
 						<span itemProp='name headline'>{post.frontmatter.title}</span>
 						<PostDate>
@@ -74,7 +74,7 @@ export const PostPreview = ({ post }) => {
 							- <span itemProp='datePublished'>{post.frontmatter.date}</span>
 						</PostDate>
 					</PostLink>
-				</h3>
+				</h2>
 
 				<meta itemProp='headline' content={post.frontmatter.title} />
 				<meta itemProp='url' content={pageUrl} />

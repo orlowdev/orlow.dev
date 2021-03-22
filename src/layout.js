@@ -10,6 +10,7 @@ const Main = styled.main`
 	display: flex;
 	flex-direction: column;
 	flex-grow: 1;
+	margin-top: 3.5rem;
 `
 
 const GlobalStyles = () => (
@@ -34,6 +35,20 @@ const GlobalStyles = () => (
 
 			body {
 				background-color: #fafafa;
+			}
+
+			h1 {
+				font-size: 2.5rem;
+				padding: 1rem 0;
+				text-align: center;
+			}
+
+			h2 {
+				font-size: 1.8rem;
+			}
+
+			h3 {
+				font-size: 1.6rem;
 			}
 
 			a {

@@ -19,6 +19,7 @@ const InternalLink = styled(Link)`
 `
 
 const FooterLinks = styled.ol`
+	list-style: none;
 	margin: 0;
 `
 

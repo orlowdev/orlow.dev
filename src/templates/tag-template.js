@@ -7,7 +7,6 @@ import styled from '@emotion/styled'
 import { PostPreview } from '../components/post-preview'
 import { SmallText } from '../components/small-text'
 import Seo from '../components/seo'
-import SubscriptionForm from '../components/subscription-form'
 
 const List = styled.ul`
 	list-style: none;
@@ -39,8 +38,6 @@ const TagTemplate = ({ pageContext, data }) => {
 					))}
 				</List>
 
-				<SubscriptionForm />
-
 				<SmallText>
 					This page contains all articles tagged with #{pageContext.tag}. Currently there are
 					<strong> {data.allMarkdownRemark.edges.length}</strong>.
@@ -67,6 +64,12 @@ export const query = graphql`
 				node {
 					...PostPreview
 				}
+			}
+		}
+		tagsGroup: allMarkdownRemark {
+			group(field: frontmatter___tags) {
+				fieldValue
+				totalCount
 			}
 		}
 	}

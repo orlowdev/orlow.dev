@@ -59,7 +59,7 @@ export const PostPreviewSmall = ({ post }) => {
 				/>
 			</Link>
 			<Column>
-				<h4>
+				<h3>
 					<PostLink itemProp='url' to={post.fields.slug}>
 						<span itemProp='name headline'>{post.frontmatter.title}</span>
 						<PostDate>
@@ -67,7 +67,7 @@ export const PostPreviewSmall = ({ post }) => {
 							- <span itemProp='datePublished'>{post.frontmatter.date}</span>
 						</PostDate>
 					</PostLink>
-				</h4>
+				</h3>
 
 				<meta itemProp='headline' content={post.frontmatter.title} />
 				<meta itemProp='url' content={pageUrl} />

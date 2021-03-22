@@ -17,7 +17,12 @@ const FourOhFour = () => (
 			]}
 		/>
 		<Centralise css={{ textAlign: 'center', marginTop: '10rem' }}>
-			<h1>Found Nothing</h1>
+			<h1>
+				<span role='img' aria-label='Looking'>
+					👀
+				</span>{' '}
+				Found Nothing
+			</h1>
 			<Link to='/'>Try again?</Link>
 		</Centralise>
 	</Layout>

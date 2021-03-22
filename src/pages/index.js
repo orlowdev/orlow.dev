@@ -7,8 +7,8 @@ import { Layout } from '../layout'
 import { PostPreview } from '../components/post-preview'
 import Seo from '../components/seo'
 import SubscriptionForm from '../components/subscription-form'
-import { Labels } from '../components/labels'
 import { PostPreviewSmall } from '../components/post-preview-small'
+import { TopTags } from '../components/top-tags'
 
 const List = styled.ul`
 	list-style: none;
@@ -18,17 +18,14 @@ const List = styled.ul`
 const Index = ({ data }) => (
 	<Layout>
 		<Seo />
+
 		<Centralise>
-			<div>
-				<h2>Top Tags</h2>
-				<Labels
-					from={data.tagsGroup.group
-						.sort((a, b) => b.totalCount - a.totalCount)
-						.slice(0, 5)
-						.map((tag) => tag.fieldValue)}
-				/>
-			</div>
-			<h2 itemProp='name headline'>Recent Posts</h2>
+			<h1 itemProp='name headline'>
+				<span role='img' aria-label='Full hourglass'>
+					⏳
+				</span>{' '}
+				Recent Posts
+			</h1>
 			<List itemScope itemType='https://schema.org/ItemList'>
 				{data.allMarkdownRemark.edges.slice(0, 3).map(({ node }, i) => (
 					<li
@@ -43,8 +40,12 @@ const Index = ({ data }) => (
 					</li>
 				))}
 			</List>
-
-			<h2>More Posts</h2>
+			<h1>
+				<span role='img' aria-label='Empty hourglass'>
+					⌛️
+				</span>{' '}
+				More Posts
+			</h1>
 
 			<List itemScope itemType='https://schema.org/ItemList'>
 				{data.smallPreview.edges.slice(3).map(({ node }, i) => (
@@ -63,6 +64,7 @@ const Index = ({ data }) => (
 
 			<SubscriptionForm />
 		</Centralise>
+		<TopTags />
 	</Layout>
 )
 
@@ -92,12 +94,6 @@ export const query = graphql`
 				node {
 					...PostPreviewSmall
 				}
-			}
-		}
-		tagsGroup: allMarkdownRemark {
-			group(field: frontmatter___tags) {
-				fieldValue
-				totalCount
 			}
 		}
 	}
