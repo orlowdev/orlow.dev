@@ -7,8 +7,8 @@ export default new Typography({
 	headerFontFamily: ['Montserrat', 'system'],
 	headerColor: '#333',
 	headerWeight: '900',
-	bodyWeight: '300',
-	bodyFontFamily: ['JetBrains Mono', 'system'],
+	bodyWeight: '400',
+	bodyFontFamily: ['Open Sans', 'system'],
 	bodyColor: '#444',
 	googleFonts: [
 		{
@@ -17,7 +17,11 @@ export default new Typography({
 		},
 		{
 			name: 'JetBrains Mono',
-			styles: ['100', '300', '700'],
+			styles: ['300'],
+		},
+		{
+			name: 'Open Sans',
+			styles: ['100', '400', '700'],
 		},
 	],
 })
