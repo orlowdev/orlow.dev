@@ -32,9 +32,9 @@ export const Footer = () => {
 				&copy;&nbsp;<span itemProp='copyrightYear'>2021</span>&nbsp;
 				<span itemProp='copyrightHolder' itemScope itemType='http://schema.org/Person'>
 					<span itemProp='name'>
-						<InternalLink to={siteUrl} itemProp='url'>
+						<a href={siteUrl} itemProp='url'>
 							Sergei Orlow
-						</InternalLink>
+						</a>
 					</span>
 				</span>
 			</p>
