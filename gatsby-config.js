@@ -12,12 +12,12 @@ const {
 const isNetlifyProduction = NETLIFY_ENV === 'production'
 
 const siteUrl = isNetlifyProduction ? NETLIFY_SITE_URL : NETLIFY_DEPLOY_URL
-const title = 'Hi'
+const title = 'Much Sergei Orlov Website'
 const description =
-	'Tips on how to grow as a software developer, improve productivity, boost management and leadership skills, and jump into tracks beyond software engineering'
-const name = 'Sergei Orlow'
+	'Advice on improving developer productivity and continuously growing as a dev.  Tips on how to grow as a software developer, improve productivity, boost management and leadership skills, and jump into tracks beyond software engineering'
+const name = 'Sergei Orlov'
 const bio =
-	'Solution Architect and a full stack developer. Mainly codes in JavaScript/TypeScript and Rust.'
+	'Sergei is a full stack JavaScript developer. He is obsessed with improving developer productivity. He likes TypeScript projects without a single "any", Prettier formatting, Mazda cars, and handwriting. He prefers tabs over spaces and paid time over free time. He spends his free time giving advice to his friends who never asked him to do so.'
 
 module.exports = {
 	siteMetadata: {
@@ -30,9 +30,17 @@ module.exports = {
 		},
 	},
 	plugins: [
-		'gatsby-plugin-emotion',
+		'gatsby-plugin-postcss',
 		'gatsby-plugin-react-helmet',
 		'gatsby-plugin-sitemap',
+		{
+			resolve: 'gatsby-plugin-web-font-loader',
+			options: {
+				google: {
+					families: ['JetBrains Mono'],
+				},
+			},
+		},
 		{
 			resolve: 'gatsby-source-filesystem',
 			options: {
@@ -132,12 +140,6 @@ module.exports = {
 						title: '||↓ RSS Feed',
 					},
 				],
-			},
-		},
-		{
-			resolve: 'gatsby-plugin-typography',
-			options: {
-				pathToConfigModule: 'src/typography.js',
 			},
 		},
 		'gatsby-plugin-sharp',

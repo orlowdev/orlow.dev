@@ -43,6 +43,7 @@ export const postPreviewFragment = graphql`
 			description
 			tags
 			song
+			featured
 			imageAlt
 			image {
 				sharp: childImageSharp {

@@ -1,15 +1,10 @@
-import styled from '@emotion/styled'
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const Wrapper = styled.span`
-	color: #777;
-`
-
 export const TimeToRead = ({ timeToRead }) => (
-	<Wrapper>
+	<span className='text-gray-400 text-xs my-2 tracking-tight'>
 		Time to Read: {timeToRead} min {'⏱'.repeat(Math.ceil(timeToRead / 10))}
-	</Wrapper>
+	</span>
 )
 
 TimeToRead.propTypes = {

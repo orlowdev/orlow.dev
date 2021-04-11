@@ -1,6 +1,5 @@
 import { Link } from 'gatsby'
 import React from 'react'
-import { Centralise } from '../components/centralise'
 import Seo from '../components/seo'
 import { Layout } from '../layout'
 
@@ -16,15 +15,17 @@ const FourOhFour = () => (
 				},
 			]}
 		/>
-		<Centralise css={{ textAlign: 'center', marginTop: '10rem' }}>
-			<h1>
+		<div className='m-auto text-center p-5 h-screen flex flex-col justify-center'>
+			<h1 className='font-black text-4xl text-gray-700 mb-10'>
 				<span role='img' aria-label='Looking'>
 					👀
 				</span>{' '}
 				Found Nothing
 			</h1>
-			<Link to='/'>Try again?</Link>
-		</Centralise>
+			<Link className='text-red-700 underline' to='/'>
+				Try again?
+			</Link>
+		</div>
 	</Layout>
 )
 

@@ -1,49 +1,26 @@
 import React from 'react'
-import styled from '@emotion/styled'
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
-import { Colours } from '../colours'
-
-export const Label = styled.span`
-	padding: 0.25rem 0.5rem;
-	background-color: ${Colours.LIGHT};
-	border: 0;
-	border-radius: 4px;
-	box-shadow: 0 0 15px #0000000f;
-	font-size: 0.8rem;
-	margin-right: 8px;
-	margin-bottom: 8px !important;
-	text-transform: lowercase;
-	white-space: nowrap;
-
-	> a {
-		text-decoration: none;
-		color: #333;
-	}
-
-	:last-of-type {
-		margin-right: 0;
-	}
-`
-
-export const List = styled.div`
-	margin-bottom: 2rem;
-	display: flex;
-	flex-wrap: wrap;
-	width: 100%;
-`
 
 export const Labels = ({ from, limit = 0 }) => {
 	const tags = limit ? from.slice(0, limit) : from
 
 	return (
-		<List>
+		<div className='mb-2 flex flex-wrap w-full'>
 			{tags.map((tag, i) => (
-				<Label key={tag || i}>
-					<Link to={`/tags/${tag}/`}>#{tag}</Link>
-				</Label>
+				<span
+					className='bg-gray-200  whitespace-nowrap lowercase text-sm shadow-sm ml-1 mt-1 rounded-xl transition hover:bg-gray-300 focus:ring'
+					key={tag || i}
+				>
+					<Link
+						className='inline-block px-4 py-1 text-gray-800 transition font-bold'
+						to={`/tags/${tag}/`}
+					>
+						#{tag}
+					</Link>
+				</span>
 			))}
-		</List>
+		</div>
 	)
 }
 

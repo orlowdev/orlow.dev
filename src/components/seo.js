@@ -129,6 +129,7 @@ const Seo = ({
 						gtag('config', 'G-D8P33SEFSE');
 				`}
 			</script>
+			<link rel='preconnect' href='https://fonts.googleapis.com' />
 		</Helmet>
 	)
 }

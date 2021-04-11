@@ -9,6 +9,7 @@ song: https://music.apple.com/ru/album/strawberry-avalanche-album-version-album-
 image: ./hero.png
 imageAlt: Me and Procreate
 description: Use arrow functions for constructing objects in JavaScript. Part I.
+featured: true
 published: true
 imageShare: './og-image.png'
 ---

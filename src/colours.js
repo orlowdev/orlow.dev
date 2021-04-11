@@ -1,8 +1,0 @@
-export const Colours = {
-	PRIMARY: '#94234A',
-	SECONDARY: '#2E4B52',
-	LIGHT: '#B8D0E0',
-	ACCENT: '#91906D',
-	FONT_DARKER: '#130203',
-	FONT_DARK: '#332223',
-}

@@ -1,9 +1,12 @@
-import styled from '@emotion/styled'
+import React from 'react'
+import PropTypes from 'prop-types'
 
-export const SmallText = styled.p`
-	margin-top: 3rem;
-	padding: 2rem;
-	background-color: white;
-	box-shadow: 0 0 15px 5px #0000000f;
-	font-size: 0.7rem;
-`
+export const SmallText = ({ children }) => (
+	<p className='bg-white shadow-sm p-5 text-sm border-t-2 border-indigo-600 text-gray-700 rounded-2xl max-w-xl'>
+		{children}
+	</p>
+)
+
+SmallText.propTypes = {
+	children: PropTypes.oneOf(PropTypes.object, PropTypes.array),
+}
