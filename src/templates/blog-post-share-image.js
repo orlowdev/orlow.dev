@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import Image from 'gatsby-image'
+import 'katex/dist/katex.min.css'
 
 const ShareImageTemplate = ({ data }) => {
 	const post = data.markdownRemark
@@ -14,13 +15,15 @@ const ShareImageTemplate = ({ data }) => {
 				<h1 className='font-serif text-7xl font-black tracking-wide mt-12'>
 					{post.frontmatter.title}
 				</h1>
-				<div className='w-20 self-center border-b-4 border-pink-600 rounded-full' />
-				<p className='text-5xl font-black mb-12'>||↓</p>
+				<div className='w-32 self-center border-b-4 border-pink-600 rounded-full' />
+				<p className='text-7xl font-black mb-12'>||↓</p>
 			</div>
-			<time className='font-serif absolute bottom-2 left-3 text-pink-900 font-extrabold'>
+			<time className='font-serif text-2xl absolute bottom-1 left-2 text-pink-900 font-extrabold'>
 				{post.frontmatter.date}
 			</time>
-			<p className='font-serif absolute bottom-2 right-3 text-gray-100 font-extrabold'>orlow.dev</p>
+			<p className='font-serif absolute bottom-1 right-2 text-2xl text-gray-100 font-extrabold'>
+				orlow.dev
+			</p>
 		</div>
 	)
 }
