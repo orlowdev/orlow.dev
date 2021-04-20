@@ -23,7 +23,7 @@ const Seo = ({
 
 	const { defaultImage } = useStaticQuery(graphql`
 		query FixedImages {
-			defaultImage: file(relativePath: { eq: "img/og.jpg" }) {
+			defaultImage: file(relativePath: { eq: "img/og.png" }) {
 				sharp: childImageSharp {
 					...OpenGraphImage
 				}

@@ -31,7 +31,7 @@ const PageTemplate = ({ data }) => {
 			/>
 			<article className='flex flex-col w-full' itemScope itemType='http://schema.org/Article'>
 				<BackgroundImage
-					className='w-full px-3 pt-40 lg:pt-64 overflow-hidden'
+					className='w-full px-3 pt-40 lg:pt-64 overflow-hidden relative'
 					Tag='section'
 					fluid={post.frontmatter.image.sharp.fluid}
 					fadeIn='soft'
@@ -45,6 +45,21 @@ const PageTemplate = ({ data }) => {
 						sandbox='allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation-by-user-activation'
 						src={post.frontmatter.song.replace('/music.', '/embed.music.')}
 					/>
+
+					{post.frontmatter.devtoUrl && (
+						<a
+							href={post.frontmatter.devtoUrl}
+							className='absolute right-3 bottom-3'
+							rel='nofollow'
+						>
+							<img
+								src='https://d2fltix0v2e0sb.cloudfront.net/dev-badge.svg'
+								alt="Sergei Orlov's DEV Community Profile"
+								height='30'
+								width='30'
+							/>
+						</a>
+					)}
 				</BackgroundImage>
 
 				<div className='p-5 self-center'>

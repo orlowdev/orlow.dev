@@ -12,6 +12,7 @@ description: Use arrow functions for constructing objects in JavaScript. Part I.
 featured: true
 published: true
 imageShare: './og-image.png'
+devtoUrl: 'https://dev.to/orlowdev/factory-arrow-functions-and-es6-classes-in-javascript-1d83'
 ---
 
 This article describes an alternative approach to instantiating objects from a template in JavaScript. For better comprehension, it is sometimes compared with commonly used ES6 classes.

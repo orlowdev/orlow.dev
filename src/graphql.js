@@ -31,6 +31,7 @@ export const postPageFragment = graphql`
 					}
 				}
 			}
+			devtoUrl
 		}
 	}
 `

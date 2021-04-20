@@ -10,8 +10,10 @@ song: https://music.apple.com/ru/album/%D0%BC%D0%B5%D0%B6%D0%B4%D1%83-%D0%BD%D0%
 image: ./hero.png
 imageAlt: Me and Procreate
 description: Use arrow functions for constructing objects in TypeScript. Part II.
+featured: true
 published: true
 imageShare: './og-image.png'
+devtoUrl: 'https://dev.to/orlowdev/factory-arrow-functions-in-typescript-1660'
 ---
 
 This article continues [the discussion of using factory arrow functions](/2020/09/factory-arrow-functions-in-js/) and covers providing TypeScript type definitions for them. I highly recommend reading part I.
