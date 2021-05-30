@@ -82,7 +82,7 @@
     "gatsby-remark-katex": "^4.2.0",
     "gatsby-remark-relative-images": "^2.0.2",
     "gatsby-source-filesystem": "^3.0.0",
-    "gatsby-source-notion-api": "^0.8.0",
+    "gatsby-source-notion-api": "^0.8.1",
     "gatsby-transformer-remark": "^3.0.0",
     "gatsby-transformer-sharp": "^3.0.0",
     "katex": "^0.13.2",
