@@ -42,8 +42,10 @@ export default TagTemplate
 export const query = graphql`
 	query TagContents($tag: String!) {
 		allMarkdownRemark(
-			sort: { order: DESC, fields: [frontmatter___date] }
-			filter: { frontmatter: { tags: { in: [$tag] }, published: { eq: true } } }
+			sort: { order: DESC, fields: [frontmatter___Publish_Date___start] }
+			filter: {
+				frontmatter: { Tags: { elemMatch: { name: { in: [$tag] } } }, Published: { eq: true } }
+			}
 		) {
 			edges {
 				node {
@@ -52,7 +54,7 @@ export const query = graphql`
 			}
 		}
 		tagsGroup: allMarkdownRemark {
-			group(field: frontmatter___tags) {
+			group(field: frontmatter___Tags___name) {
 				fieldValue
 				totalCount
 			}

@@ -7,7 +7,7 @@ const form = `<script src="https://f.convertkit.com/ckjs/ck.5.js"></script>
 const SubscriptionForm = () => (
 	<div className='p-5 bg-white shadow-sm rounded-2xl border-t-2 border-pink-600 max-w-xl'>
 		<h3 className='text-xl text-center font-bold'>Subscribe to the newsletter!</h3>
-		<divs dangerouslySetInnerHTML={{ __html: form }} />
+		<div dangerouslySetInnerHTML={{ __html: form }} />
 	</div>
 )
 

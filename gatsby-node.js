@@ -1,17 +1,29 @@
 const path = require('path')
-const { createFilePath } = require('gatsby-source-filesystem')
+const { createRemoteFileNode } = require('gatsby-source-filesystem')
 
-exports.onCreateNode = ({ node, getNode, actions }) => {
-	const { createNodeField } = actions
+exports.onCreateNode = async ({ node, actions: { createNode }, createNodeId, getCache }) => {
+	if (node.internal.type === 'MarkdownRemark') {
+		for (let i = 0; i < node.frontmatter['Hero Image'].length; i++) {
+			const name = node.frontmatter['Hero Image'][i].name
 
-	if (node.internal.type == 'MarkdownRemark') {
-		const slug = createFilePath({ node, getNode, basePath: 'pages' })
+			if (!name) {
+				continue
+			}
 
-		createNodeField({
-			node,
-			name: 'slug',
-			value: slug,
-		})
+			if (name.startsWith('http')) {
+				const fileNode = await createRemoteFileNode({
+					url: name,
+					parentNodeId: node.id,
+					createNode,
+					createNodeId,
+					getCache,
+				})
+
+				if (fileNode) {
+					node.frontmatter['Hero Image'][i].remoteImage___NODE = fileNode.id
+				}
+			}
+		}
 	}
 }
 
@@ -24,20 +36,23 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
 	const result = await graphql(`
 		{
-			postsRemark: allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
+			postsRemark: allMarkdownRemark(
+				filter: { frontmatter: { Published: { eq: true } } }
+				sort: { order: DESC, fields: [frontmatter___Publish_Date___start] }
+			) {
 				edges {
 					node {
-						fields {
-							slug
-						}
 						frontmatter {
-							tags
+							Slug
 						}
 					}
 				}
 			}
-			tagsGroup: allMarkdownRemark {
-				group(field: frontmatter___tags) {
+			tagsGroup: allMarkdownRemark(
+				filter: { frontmatter: { Published: { eq: true } } }
+				sort: { order: DESC, fields: [frontmatter___Publish_Date___start] }
+			) {
+				group(field: frontmatter___Tags___name) {
 					fieldValue
 				}
 			}
@@ -53,19 +68,19 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
 	posts.forEach(({ node }) => {
 		createPage({
-			path: node.fields.slug,
+			path: node.frontmatter.Slug,
 			component: blogPostTemplate,
 			context: {
-				slug: node.fields.slug,
+				slug: node.frontmatter.Slug,
 			},
 		})
 
 		if (process.env.gatsby_executing_command.includes('develop')) {
 			createPage({
-				path: `${node.fields.slug}image_share/`,
+				path: `${node.frontmatter.Slug}/image_share/`,
 				component: imageShareTemplate,
 				context: {
-					slug: node.fields.slug,
+					slug: node.frontmatter.Slug,
 				},
 			})
 		}

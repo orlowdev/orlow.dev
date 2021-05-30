@@ -9,7 +9,7 @@ const ShareImageTemplate = ({ data }) => {
 
 	return (
 		<div className='relative' style={{ width: '1200px', height: '630px' }}>
-			<Image className='w-full h-full' fluid={data.markdownRemark.frontmatter.image.sharp.fluid} />
+			<Image className='w-full h-full' fluid={post.frontmatter.Hero_Image.name} />
 			<div className='absolute inset-0 opacity-70 bg-gradient-to-tr from-gray-300 via-gray-700 to-gray-600'></div>
 			<div className='absolute inset-0 m-10 p-10 bg-gray-200 bg-opacity-70 text-center text-gray-700 flex flex-col justify-between rounded-2xl shadow-xl'>
 				<h1 className='font-serif text-7xl font-black tracking-wide mt-12'>
@@ -19,7 +19,7 @@ const ShareImageTemplate = ({ data }) => {
 				<p className='text-7xl font-black mb-12'>||↓</p>
 			</div>
 			<time className='font-serif text-2xl absolute bottom-1 left-2 text-pink-900 font-extrabold'>
-				{post.frontmatter.date}
+				{post.frontmatter.Publish_Date.start}
 			</time>
 			<p className='font-serif absolute bottom-1 right-2 text-2xl text-gray-100 font-extrabold'>
 				orlow.dev
@@ -36,7 +36,7 @@ export default ShareImageTemplate
 
 export const query = graphql`
 	query ShareImageContents($slug: String!) {
-		markdownRemark(fields: { slug: { eq: $slug } }) {
+		markdownRemark(frontmatter: { Slug: { eq: $slug } }) {
 			...PostPage
 		}
 	}

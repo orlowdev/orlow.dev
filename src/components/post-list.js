@@ -10,15 +10,15 @@ export const PostList = ({ posts }) => (
 	>
 		{posts.map(({ node }, i) => (
 			<div
-				key={node.fields.slug}
+				key={node.frontmatter.Slug}
 				className={`max-w-sm xl:max-w-none h-full w-full ${
-					node.frontmatter.featured ? 'row-span-2' : 'row-span-1'
+					node.frontmatter.Featured ? 'row-span-2' : 'row-span-1'
 				}`}
 				itemProp='itemListElement'
 				itemScope
 				itemType='https://schema.org/ListItem'
 			>
-				<meta css={{ display: 'none' }} itemProp='position' content={i + 1} />
+				<meta itemProp='position' content={i + 1} />
 				<meta itemProp='name headline' content={node.frontmatter.title} />
 
 				<PostPreview post={node} />

@@ -11,27 +11,42 @@ export const openGraphImageFragment = graphql`
 export const postPageFragment = graphql`
 	fragment PostPage on MarkdownRemark {
 		html
-		fields {
-			slug
-		}
 		frontmatter {
 			title
-			song
-			tags
-			date(formatString: "DD MMMM, YYYY")
-			description
-			imageAlt
-			imageShare {
-				publicURL
+			Song
+			Slug
+			Tags {
+				name
+				color
 			}
-			image {
-				sharp: childImageSharp {
-					fluid(quality: 100) {
-						...GatsbyImageSharpFluid_withWebp
+			Type {
+				name
+				color
+			}
+			Language {
+				name
+				color
+			}
+			Category {
+				name
+				color
+			}
+			Publish_Date {
+				start(formatString: "DD MMMM, YYYY")
+			}
+			Published
+			Meta_Description
+			Hero_Alt
+			Hero_Image {
+				remoteImage {
+					sharp: childImageSharp {
+						fluid(quality: 100) {
+							...GatsbyImageSharpFluid_withWebp
+						}
 					}
 				}
 			}
-			devtoUrl
+			Dev_to_URL
 		}
 	}
 `
@@ -40,22 +55,40 @@ export const postPreviewFragment = graphql`
 	fragment PostPreview on MarkdownRemark {
 		frontmatter {
 			title
-			date(formatString: "DD MMMM, YYYY")
-			description
-			tags
-			song
-			featured
-			imageAlt
-			image {
-				sharp: childImageSharp {
-					fluid(quality: 100) {
-						...GatsbyImageSharpFluid_withWebp
+			Song
+			Slug
+			Tags {
+				name
+				color
+			}
+			Type {
+				name
+				color
+			}
+			Language {
+				name
+			}
+			Category {
+				name
+				color
+			}
+			Featured
+			Publish_Date {
+				start(formatString: "DD MMMM, YYYY")
+			}
+			Published
+			Meta_Description
+			Hero_Alt
+			Hero_Image {
+				remoteImage {
+					sharp: childImageSharp {
+						fluid(quality: 100) {
+							...GatsbyImageSharpFluid_withWebp
+						}
 					}
 				}
 			}
-		}
-		fields {
-			slug
+			Dev_to_URL
 		}
 		excerpt(pruneLength: 150)
 		timeToRead

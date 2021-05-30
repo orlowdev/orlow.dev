@@ -120,16 +120,20 @@ const Seo = ({
 				...bodyAttributes,
 			}}
 		>
-			<script async src='https://www.googletagmanager.com/gtag/js?id=G-D8P33SEFSE'></script>
-			<script>
-				{`window.dataLayer = window.dataLayer || [];
-						function gtag(){dataLayer.push(arguments);}
-						gtag('js', new Date());
+			<link rel='preconnect' href='https://fonts.googleapis.com' />
+			<link rel='preconnect' href='https://www.googletagmanager.com' />
 
-						gtag('config', 'G-D8P33SEFSE');
+			{/* <!-- Global site tag (gtag.js) - Google Analytics --> */}
+			<script async src='https://www.googletagmanager.com/gtag/js?id=UA-191460996-1'></script>
+			<script>
+				{`
+					window.dataLayer = window.dataLayer || [];
+					function gtag(){dataLayer.push(arguments);}
+					gtag('js', new Date());
+
+					gtag('config', 'UA-191460996-1');
 				`}
 			</script>
-			<link rel='preconnect' href='https://fonts.googleapis.com' />
 		</Helmet>
 	)
 }

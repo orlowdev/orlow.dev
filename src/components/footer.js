@@ -3,6 +3,7 @@ import React from 'react'
 import twitter from 'simple-icons/icons/twitter'
 import github from 'simple-icons/icons/github'
 import youtube from 'simple-icons/icons/youtube'
+import instagram from 'simple-icons/icons/instagram'
 import { ExternalRoutes } from '../routes'
 import { useSiteMetadata } from '../hooks/use-site-metadata'
 
@@ -91,6 +92,11 @@ const links = [
 		href: ExternalRoutes.TWITTER,
 		title: 'Twitter',
 		icon: twitter,
+	},
+	{
+		href: ExternalRoutes.INSTAGRAM,
+		title: 'Instagram',
+		icon: instagram,
 	},
 	{
 		href: ExternalRoutes.YOUTUBE,

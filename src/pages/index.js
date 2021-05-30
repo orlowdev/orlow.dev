@@ -29,8 +29,8 @@ export default Index
 export const query = graphql`
 	query IndexPage {
 		allMarkdownRemark(
-			filter: { fileAbsolutePath: { regex: "/content/" }, frontmatter: { published: { eq: true } } }
-			sort: { order: DESC, fields: frontmatter___date }
+			filter: { frontmatter: { Published: { eq: true } } }
+			sort: { order: DESC, fields: frontmatter___Publish_Date___start }
 		) {
 			edges {
 				node {

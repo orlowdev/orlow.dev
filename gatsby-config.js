@@ -4,6 +4,8 @@ const DEFAULT_URL = 'https://orlow.dev'
 // Env variables extraction (Netlify-specific mostly)
 const {
 	NODE_ENV,
+	NOTION_TOKEN,
+	NOTION_DATABASE,
 	URL: NETLIFY_SITE_URL = DEFAULT_URL,
 	DEPLOY_PRIME_URL: NETLIFY_DEPLOY_URL = NETLIFY_SITE_URL,
 	CONTEXT: NETLIFY_ENV = NODE_ENV,
@@ -17,7 +19,7 @@ const description =
 	'Advice on improving developer productivity and continuously growing as a dev.  Tips on how to grow as a software developer, improve productivity, boost management and leadership skills, and jump into tracks beyond software engineering'
 const name = 'Sergei Orlov'
 const bio =
-	'Sergei is a full stack JavaScript developer. He is obsessed with improving developer productivity. He likes TypeScript projects without a single "any", Prettier formatting, Mazda cars, and handwriting. He prefers tabs over spaces and paid time over free time. He spends his free time giving advice to his friends who never asked him to do so.'
+	'Sergei is a full stack JavaScript developer. He is obsessed with improving developer productivity. He likes TypeScript projects without a single "any", Prettier formatting, Mazda cars, and handwriting. He prefers tabs over spaces and acoustic guitars to electric ones. He spends his free time giving advice to his friends who never asked him to do so.'
 
 module.exports = {
 	siteMetadata: {
@@ -33,6 +35,7 @@ module.exports = {
 		'gatsby-plugin-postcss',
 		'gatsby-plugin-react-helmet',
 		'gatsby-plugin-sitemap',
+
 		{
 			resolve: 'gatsby-plugin-web-font-loader',
 			options: {
@@ -51,15 +54,23 @@ module.exports = {
 		{
 			resolve: 'gatsby-source-filesystem',
 			options: {
-				name: 'content',
-				path: `${__dirname}/content/`,
+				name: 'assets',
+				path: `${__dirname}/assets/`,
 			},
 		},
 		{
 			resolve: 'gatsby-source-filesystem',
 			options: {
-				name: 'assets',
-				path: `${__dirname}/assets/`,
+				name: 'static',
+				path: `${__dirname}/static/`,
+			},
+		},
+
+		{
+			resolve: 'gatsby-source-notion-api',
+			options: {
+				databaseId: NOTION_DATABASE,
+				token: NOTION_TOKEN,
 			},
 		},
 		{
@@ -119,25 +130,27 @@ module.exports = {
 						serialize: ({ query: { site, allMarkdownRemark } }) =>
 							allMarkdownRemark.edges.map((edge) => ({
 								...edge.node.frontmatter,
-								description: edge.node.excerpt,
-								date: edge.node.frontmatter.date,
-								url: site.siteMetadata.siteUrl + edge.node.fields.slug,
-								guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
+								description: edge.node.frontmatter.Meta_Description,
+								date: edge.node.frontmatter.Publish_Date.start,
+								url: site.siteMetadata.siteUrl + edge.node.frontmatter.Slug,
+								guid: site.siteMetadata.siteUrl + edge.node.frontmatter.Slug,
 								custom_elements: [{ 'content:encoded': edge.node.html }],
 							})),
 						query: `{
                 allMarkdownRemark(
-                  filter: { fileAbsolutePath: { regex: "/content/" }, frontmatter: { published: { eq: true } } }
-                  sort: { order: DESC, fields: [frontmatter___date] }
+                  filter: { frontmatter: { Published: { eq: true } } }
+                  sort: { order: DESC, fields: [frontmatter___Publish_Date___start] }
                 ) {
                   edges {
                     node {
-                      excerpt
                       html
-                      fields { slug }
                       frontmatter {
                         title
-                        date
+                        Publish_Date {
+													start
+												}
+												Slug
+												Meta_Description
                       }
                     }
                   }
