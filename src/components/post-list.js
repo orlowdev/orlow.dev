@@ -6,13 +6,17 @@ export const PostList = ({ posts }) => (
 	<section
 		itemScope
 		itemType='https://schema.org/ItemList'
-		className='grid gap-5 place-items-center grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 auto-rows-min'
+		className='grid gap-5 place-items-center grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'
 	>
 		{posts.map(({ node }, i) => (
 			<div
 				key={node.frontmatter.Slug}
 				className={`max-w-sm xl:max-w-none h-full w-full ${
-					node.frontmatter.Featured ? 'row-span-2' : 'row-span-1'
+					node.frontmatter.Featured ||
+					node.frontmatter.Type.name === '📕' ||
+					node.frontmatter.Type.name === '📮'
+						? 'row-span-4'
+						: 'row-span-3'
 				}`}
 				itemProp='itemListElement'
 				itemScope

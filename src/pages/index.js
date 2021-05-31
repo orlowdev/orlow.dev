@@ -29,7 +29,7 @@ export default Index
 export const query = graphql`
 	query IndexPage {
 		allMarkdownRemark(
-			filter: { frontmatter: { Published: { eq: true } } }
+			filter: { frontmatter: { Published: { eq: true }, Page: { eq: false } } }
 			sort: { order: DESC, fields: frontmatter___Publish_Date___start }
 		) {
 			edges {

@@ -11,7 +11,11 @@ export const PostPreview = ({ post }) => {
 	const { siteUrl } = useSiteMetadata()
 	const pageUrl = `${siteUrl}${post.frontmatter.Slug}`
 	const imageUrl = `${siteUrl}${post.frontmatter.Hero_Image[0]?.remoteImage.sharp.fluid}`
-	const isLarge = post.frontmatter.Featured
+
+	const isLarge =
+		post.frontmatter.Featured ||
+		post.frontmatter.Type.name === '📕' ||
+		post.frontmatter.Type.name === '📮'
 
 	return (
 		<div

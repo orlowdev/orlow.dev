@@ -47,6 +47,11 @@ export const Footer = () => {
 			<nav>
 				<ul>
 					<li>
+						<Link className='text-gray-500' rel='nofollow' to='/about'>
+							About
+						</Link>
+					</li>
+					<li>
 						<a
 							className='text-gray-500'
 							rel='nofollow'
