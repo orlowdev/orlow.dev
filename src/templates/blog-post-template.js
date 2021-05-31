@@ -41,6 +41,8 @@ const PageTemplate = ({ data }) => {
 					fluid={post.frontmatter.Hero_Image[0].remoteImage.sharp.fluid}
 					fadeIn='soft'
 				>
+					<div className='bg-warmGray-700 dark:opacity-50 opacity-0 absolute top-0 left-0 right-0 bottom-0'></div>
+
 					<iframe
 						className='w-full opacity-80 mb-5 rounded-2xl max-w-xl'
 						title='Apple Music Jukebox'
@@ -51,10 +53,10 @@ const PageTemplate = ({ data }) => {
 						src={post.frontmatter.Song.replace('/music.', '/embed.music.')}
 					/>
 
-					{post.frontmatter.Dev_to_URL && (
+					{post.frontmatter.Devto_URL && (
 						<a
-							href={post.frontmatter.Dev_to_URL}
-							className='absolute right-3 bottom-3'
+							href={post.frontmatter.Devto_URL}
+							className='absolute right-3 bottom-3 transform hover:-rotate-6 transition duration-300'
 							rel='nofollow'
 						>
 							<img
@@ -79,7 +81,7 @@ const PageTemplate = ({ data }) => {
 					<div
 						className={`prose ${
 							proseColors[post.frontmatter.Category.color]
-						} lg:prose-xl flex flex-col justify-center`}
+						} lg:prose-xl flex flex-col justify-center dark:prose-dark`}
 					>
 						<h1 className='text-4xl font-black' itemProp='name'>
 							{post.frontmatter.title}

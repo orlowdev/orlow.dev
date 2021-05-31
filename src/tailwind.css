@@ -26,7 +26,7 @@
 
 	deckgo-highlight-code {
 		margin-bottom: 2rem;
-		background: #ffffff;
+		@apply bg-white dark:bg-warmGray-800 dark:text-warmGray-300;
 	}
 
 	.gatsby-resp-image-wrapper {

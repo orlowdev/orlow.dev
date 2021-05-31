@@ -7,9 +7,9 @@ import youtube from 'simple-icons/icons/youtube'
 import instagram from 'simple-icons/icons/instagram'
 
 export const Header = () => (
-	<div className='bg-gray-100 p-3 flex justify-between'>
+	<div className='bg-gray-100 dark:bg-warmGray-700 p-3 flex justify-between'>
 		<Link
-			className='inline-block text-gray-700 text-3xl font-black hover:text-pink-700 transition hover:-rotate-6 transform'
+			className='inline-block text-gray-700 dark:text-warmGray-300 text-3xl font-black hover:text-pink-700 transition hover:-rotate-6 transform'
 			to='/'
 		>
 			||↓
@@ -33,7 +33,7 @@ export const Header = () => (
 						>
 							<svg
 								title={title}
-								className='inline-block w-6 h-6 fill-current text-gray-200 transform hover:-rotate-6 hover:text-pink-900 transition duration-300'
+								className='inline-block w-6 h-6 fill-current text-gray-200 dark:text-warmGray-700 transform hover:-rotate-6 hover:text-pink-900 transition duration-300'
 								dangerouslySetInnerHTML={{ __html: icon.svg }}
 							/>
 						</a>

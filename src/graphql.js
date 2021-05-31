@@ -46,7 +46,7 @@ export const postPageFragment = graphql`
 					}
 				}
 			}
-			Dev_to_URL
+			Devto_URL
 		}
 	}
 `
@@ -88,7 +88,7 @@ export const postPreviewFragment = graphql`
 					}
 				}
 			}
-			Dev_to_URL
+			Devto_URL
 		}
 		excerpt(pruneLength: 150)
 		timeToRead

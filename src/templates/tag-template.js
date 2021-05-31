@@ -14,7 +14,10 @@ const TagTemplate = ({ pageContext, data }) => {
 				description={`This page contains all articles tagged with ${pageContext.tag}. Currently there are ${data.allMarkdownRemark.edges.length}.`}
 			/>
 			<div className='p-5'>
-				<h1 className='font-black text-gray-800 text-3xl mb-5' itemProp='name headline'>
+				<h1
+					className='font-black text-gray-800 dark:text-warmGray-300 text-3xl mb-5'
+					itemProp='name headline'
+				>
 					#{pageContext.tag} articles
 				</h1>
 

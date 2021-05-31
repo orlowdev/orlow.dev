@@ -19,7 +19,7 @@ export const PostPreview = ({ post }) => {
 
 	return (
 		<div
-			className={`bg-white rounded-2xl shadow-xl h-full flex flex-col border-b-2 ${
+			className={`bg-white dark:bg-warmGray-600 dark:text-warmGray-300 rounded-2xl shadow-xl h-full flex flex-col border-b-2 ${
 				borderColors[post.frontmatter.Category.color]
 			}`}
 		>
@@ -34,14 +34,18 @@ export const PostPreview = ({ post }) => {
 							className='rounded-t-2xl h-64'
 							fluid={post.frontmatter.Hero_Image[0].remoteImage.sharp.fluid}
 						></Image>
+						<div className='bg-warmGray-700 dark:opacity-50 opacity-0 absolute top-0 left-0 right-0 bottom-0'></div>
 					</Link>
 				</div>
 			)}
 
 			<div className='flex-grow p-5'>
-				<h2 className='text-xl font-black font-sans'>
+				<h2 className='text-xl font-black font-sans tracking-wider'>
 					<Link itemProp='url' to={post.frontmatter.Slug}>
-						<span className='text-gray-800 hover:text-pink-600 transition' itemProp='name headline'>
+						<span
+							className='text-gray-800 dark:text-warmGray-300 hover:text-pink-600 dark:hover:text-pink-400 transition'
+							itemProp='name headline'
+						>
 							{post.frontmatter.title}
 						</span>
 					</Link>
@@ -56,7 +60,7 @@ export const PostPreview = ({ post }) => {
 					<TimeToRead timeToRead={post.timeToRead} />
 				</div>
 
-				<p className='mb-2 text-sm  md:text-base lg:text-lg text-gray-700'>
+				<p className='mb-2 text-sm  md:text-base lg:text-lg text-gray-700 dark:text-warmGray-300'>
 					{post.frontmatter.Meta_Description}
 				</p>
 
@@ -64,7 +68,7 @@ export const PostPreview = ({ post }) => {
 			</div>
 
 			<Link
-				className='w-full text-center py-3 uppercase text-gray-700 font-bold transition hover:text-pink-600'
+				className='w-full text-center py-3 uppercase text-gray-700 dark:text-warmGray-300 font-bold transition hover:text-pink-600 dark:hover:text-pink-400'
 				to={post.frontmatter.Slug}
 			>
 				{post.frontmatter.Type.name} Read →
