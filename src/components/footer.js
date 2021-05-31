@@ -23,7 +23,7 @@ export const Footer = () => {
 				itemScope
 				itemType='http://schema.org/SiteNavigationElement'
 			>
-				<ul className='flex flex-row space-x-6'>
+				<ul className='flex flex-row space-x-4 flex-wrap w-full'>
 					{links.map(({ title, icon, href }) => (
 						<li key={title}>
 							<meta itemProp='name' content={title} />

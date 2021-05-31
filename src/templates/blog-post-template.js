@@ -30,7 +30,11 @@ const PageTemplate = ({ data }) => {
 				url={post.frontmatter.Slug}
 				// image={post.frontmatter.imageShare.publicURL}
 			/>
-			<article className='flex flex-col w-full' itemScope itemType='http://schema.org/Article'>
+			<article
+				className='flex flex-col w-full overflow-x-hidden'
+				itemScope
+				itemType='http://schema.org/Article'
+			>
 				<BackgroundImage
 					className='w-full px-3 pt-40 lg:pt-64 overflow-hidden relative'
 					Tag='section'
@@ -63,7 +67,7 @@ const PageTemplate = ({ data }) => {
 					)}
 				</BackgroundImage>
 
-				<div className='p-5 self-center'>
+				<div className='p-5 self-center max-w-full'>
 					<p className='uppercase text-gray-400 text-sm text-right'>
 						Credit goes to: {post.frontmatter.Hero_Alt}
 					</p>
