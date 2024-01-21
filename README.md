@@ -1,3 +1,15 @@
 # orlow.dev
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/0a6077bd-5e7b-4e59-ad3c-722c3f9e0738/deploy-status)](https://app.netlify.com/sites/orlow/deploys)
+To install dependencies:
+
+```bash
+bun install
+```
+
+To run:
+
+```bash
+bun run index.tsx
+```
+
+This project was created using `bun init` in bun v1.0.3. [Bun](https://bun.sh) is a fast all-in-one JavaScript runtime.

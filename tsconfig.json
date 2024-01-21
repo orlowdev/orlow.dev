@@ -1,0 +1,30 @@
+{
+	"compilerOptions": {
+		"outDir": "./dist",
+		"lib": ["ESNext", "DOM"],
+		"allowJs": true,
+		"jsx": "react-jsx",
+		"jsxImportSource": "gutsby",
+		"esModuleInterop": true,
+		"allowSyntheticDefaultImports": true,
+		"strict": true,
+		"forceConsistentCasingInFileNames": true,
+		"noFallthroughCasesInSwitch": true,
+		"strictFunctionTypes": true,
+		"alwaysStrict": true,
+		"strictBindCallApply": true,
+		"strictNullChecks": true,
+		"strictPropertyInitialization": true,
+		"stripInternal": true,
+		"skipLibCheck": true,
+		"isolatedModules": true,
+		"target": "ESNext",
+		"module": "CommonJS",
+		"types": ["bun-types"],
+		"baseUrl": ".",
+		"paths": {
+			"~/*": ["./lib/*"],
+			"gutsby/*": ["./lib/gutsby/*"]
+		}
+	}
+}

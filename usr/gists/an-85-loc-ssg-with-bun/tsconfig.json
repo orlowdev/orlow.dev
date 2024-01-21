@@ -1,0 +1,19 @@
+{
+	"compilerOptions": {
+		"baseUrl": ".",
+		"paths": {
+			"gutsby/*": ["./gutsby/*"]
+		},
+		"jsx": "react-jsx",
+		"jsxImportSource": "gutsby",
+		"lib": ["ESNext", "DOM"],
+		"allowJs": true,
+		"esModuleInterop": true,
+		"allowSyntheticDefaultImports": true,
+		"skipLibCheck": true,
+		"isolatedModules": true,
+		"target": "ESNext",
+		"module": "CommonJS",
+		"types": ["bun-types"]
+	}
+}
