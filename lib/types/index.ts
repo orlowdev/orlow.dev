@@ -7,11 +7,17 @@ declare global {
 
 	type PostMeta = {
 		date: Date
-		name: string
+		title: string
 		slug: string
 		description: string
 		labels: string[]
 		sound: string
+		hero: string
+	}
+
+	type PageMeta = {
+		title: string
+		labels: string[]
 		hero: string
 	}
 

@@ -1,7 +1,7 @@
 import BlogPostLayout from "~/layouts/blog-post"
 
 export const meta: PostMeta = {
-	name: "Oath By Example: 5 Ways You Can Benefit from Using `oathify`",
+	title: "Oath By Example: 5 Ways You Can Benefit from Using `oathify`",
 	date: new Date("2024-01-19"),
 	slug: "oath-by-example",
 	description:
@@ -15,7 +15,7 @@ export const meta: PostMeta = {
 export default function OathByExample() {
 	return (
 		<BlogPostLayout post={meta}>
-			<h1 class="text-2xl font-black uppercase">{meta.name}</h1>
+			<h1 class="text-2xl font-black uppercase">{meta.title}</h1>
 			<p>
 				Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta magni itaque sunt explicabo!
 				Culpa itaque animi vel voluptates maiores minima corrupti, hic expedita nemo dolores,

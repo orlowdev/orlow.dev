@@ -4,11 +4,28 @@ import { Html } from "~/common/html"
 import { Main } from "~/common/main"
 import { Footer } from "~/common/footer"
 
+export const meta: PageMeta = {
+	title: "ENOTFOUND",
+	hero: "/index.jpg",
+	labels: [],
+}
+
 export default function _404() {
 	return (
 		<Html>
 			<Head>
-				<title>ENOTFOUND</title>
+				<title>ENOTFOUND – ||↓ DEV</title>
+				<meta name="description" content={meta.title} />
+				<meta property="og:type" content="article" />
+				<meta property="og:title" content={meta.title} />
+				<meta property="og:description" content={meta.title} />
+				<meta property="og:url" content={`https://orlow.dev/404.html`} />
+				<meta property="og:image" content={`https://orlow.dev/404.og.png`} />
+				<meta property="og:image:width" content="1200" />
+				<meta property="og:image:height" content="630" />
+				<meta name="twitter:title" content={meta.title} />
+				<meta name="twitter:description" content={meta.title} />
+				<meta name="twitter:image" content="https://orlow.dev/404.og.png" />
 			</Head>
 			<Body>
 				<Main>
